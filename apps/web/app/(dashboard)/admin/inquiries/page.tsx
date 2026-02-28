@@ -6,7 +6,7 @@ import { Eye, Trash2, Mail } from 'lucide-react';
 import { useInquiries, useDeleteInquiry } from '@/hooks';
 import { Column, DataTable } from '../../_components/table/DataTable';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
-import { GeneralInquiryResponseDto } from '@zagotours/types';
+import { GeneralInquiryResponseDto } from '@roamify/types';
 import AdminTableWrapper from '../../_components/table/AdminTableWrapper';
 import { DataTableSkeleton } from '../../_components/table/Datatableskeleton';
 import {

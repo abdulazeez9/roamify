@@ -1,6 +1,6 @@
-import { User, Prisma } from '@zagotours/database';
+import { User, Prisma } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 export class UserRepository extends BaseRepository<
   User,

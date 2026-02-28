@@ -1,7 +1,7 @@
 import { BaseService } from 'src/common/service/base.service';
 import { PlatformGalleryRepository } from './platform-gallery.repository';
-import { PlatformGalleryDto } from '@zagotours/types';
-import { PlatformGallery, Prisma } from '@zagotours/database';
+import { PlatformGalleryDto } from '@roamify/types';
+import { PlatformGallery, Prisma } from '@roamify/database';
 
 export class PlatformGalleryService extends BaseService<
   PlatformGallery,

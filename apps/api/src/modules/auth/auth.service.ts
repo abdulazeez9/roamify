@@ -10,8 +10,8 @@ import {
   ResetPasswordDto,
   ROLE_PREFIXES,
   UserProfileResponse,
-} from '@zagotours/types';
-import { Role } from '@zagotours/database';
+} from '@roamify/types';
+import { Role } from '@roamify/database';
 
 export class AuthService {
   constructor(private readonly authRepository: AuthRepository) {}

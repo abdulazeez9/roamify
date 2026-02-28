@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { UserService } from './user.service';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
-import { Role, UserStatus } from '@zagotours/database';
+import { Role, UserStatus } from '@roamify/database';
 import {
   ReqBody,
   ReqParams,
@@ -10,7 +10,7 @@ import {
   TypedRequest,
 } from 'src/shared/types/express.types';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
-import { UpdateProfileDto, UpdateUserStatusDto } from '@zagotours/types';
+import { UpdateProfileDto, UpdateUserStatusDto } from '@roamify/types';
 import { UuidParam } from 'src/common/validation/common.validation';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
 

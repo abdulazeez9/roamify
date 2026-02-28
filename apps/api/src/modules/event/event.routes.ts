@@ -3,7 +3,7 @@ import { EventRepository } from './event.repository';
 import { EventService } from './event.service';
 import { EventController } from './event.controller';
 import { upload } from 'src/config/multer.config';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
 

@@ -6,7 +6,7 @@ import { validateRequest } from '../../shared/middleware/validation.middleware';
 import { authenticate } from '../../shared/middleware/authentication.middleware';
 import { registerSchema, loginSchema } from './auth.validation';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 
 const router: Router = Router();
 

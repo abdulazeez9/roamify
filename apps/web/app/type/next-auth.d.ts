@@ -1,5 +1,5 @@
 import { DefaultSession } from 'next-auth';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 
 declare module 'next-auth' {
   interface Session {

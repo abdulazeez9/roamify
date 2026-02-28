@@ -1,12 +1,12 @@
-import { User, Prisma, Role, UserStatus } from '@zagotours/database';
-import { prisma } from '@zagotours/database';
+import { User, Prisma, Role, UserStatus } from '@roamify/database';
+import { prisma } from '@roamify/database';
 import { UserRepository } from './user.repository';
 import {
   UpdateProfileDto,
   UpdateUserStatusDto,
   UserProfileResponseDto,
   ReferralStatsDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { ForbiddenException } from 'src/common/service/base.service';
 
 export class UserService {

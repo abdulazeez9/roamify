@@ -1,4 +1,4 @@
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 import { useAuthSession } from './use-auth-session';
 
 export function usePermissions() {

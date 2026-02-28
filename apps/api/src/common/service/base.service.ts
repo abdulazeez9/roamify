@@ -1,4 +1,4 @@
-import { PaginationResult } from '@zagotours/types';
+import { PaginationResult } from '@roamify/types';
 import { BaseRepository } from '../repository/base.repository';
 
 //===== EXCEPTION ERROR =====

@@ -1,6 +1,6 @@
-import { Event, EventRegistration, Prisma } from '@zagotours/database';
+import { Event, EventRegistration, Prisma } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 export class EventRepository extends BaseRepository<
   Event,

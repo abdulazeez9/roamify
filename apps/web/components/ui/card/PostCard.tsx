@@ -12,7 +12,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { LuHeart, LuMessageCircle, LuShare2 } from 'react-icons/lu';
-import { PostResponseDto } from '@zagotours/types';
+import { PostResponseDto } from '@roamify/types';
 import { AvatarImage } from '@/components/media/AvatarImage';
 import Button from '../button/Button';
 import { CommentSection } from '@/components/post/CommentSection';

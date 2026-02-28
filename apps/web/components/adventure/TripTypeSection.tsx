@@ -2,7 +2,7 @@
 
 import { SimpleGrid, Container, Heading } from '@chakra-ui/react';
 import { TripTypeCard } from '../ui/card/TripTypeCard';
-import { TripType, TripTypeLabels } from '@zagotours/types';
+import { TripType, TripTypeLabels } from '@roamify/types';
 import { useAdventureTripTypeCounts } from '@/hooks';
 
 const tripTypeImageMap: Record<TripType, string> = {

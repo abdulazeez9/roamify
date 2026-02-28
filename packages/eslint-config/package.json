@@ -1,5 +1,5 @@
 {
-  "name": "@zagotours/eslint-config",
+  "name": "@roamify/eslint-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,

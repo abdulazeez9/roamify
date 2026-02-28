@@ -1,4 +1,4 @@
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 
 // Role home paths
 export const ROLE_HOME: Record<Role, string> = {

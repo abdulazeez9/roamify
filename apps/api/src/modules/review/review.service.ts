@@ -1,10 +1,10 @@
-import { Review, Prisma } from '@zagotours/database';
+import { Review, Prisma } from '@roamify/database';
 import {
   BaseService,
   NotFoundException,
 } from 'src/common/service/base.service';
 import { ReviewRepository } from './review.repository';
-import { PaginationResult } from '@zagotours/types';
+import { PaginationResult } from '@roamify/types';
 
 export class ReviewService extends BaseService<
   Review,
@@ -69,7 +69,7 @@ export class ReviewService extends BaseService<
       where?: Prisma.ReviewWhereInput;
       include?: Prisma.ReviewInclude;
       orderBy?: any;
-    }
+    },
   ): Promise<PaginationResult<Review>> {
     return this.reviewRepo.paginateWithDetails(page, limit, options?.where);
   }

@@ -17,7 +17,7 @@ import {
   Separator,
   IconButton,
 } from '@chakra-ui/react';
-import { TripPlanningCallResponseDto } from '@zagotours/types';
+import { TripPlanningCallResponseDto } from '@roamify/types';
 import {
   usePlanningCalls,
   useDeletePlanningCall,

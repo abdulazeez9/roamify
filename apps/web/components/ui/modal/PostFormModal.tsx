@@ -21,7 +21,7 @@ import {
 import { Image as ImageIcon, X, CirclePlay } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { SelectInput } from '../input/SelectInput';
-import { TripTypeLabels } from '@zagotours/types';
+import { TripTypeLabels } from '@roamify/types';
 
 export function PostFormModal() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);

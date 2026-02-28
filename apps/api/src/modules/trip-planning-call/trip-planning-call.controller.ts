@@ -1,10 +1,10 @@
 import { Response } from 'express';
 import { TripPlanningCallService } from './trip-planning-call.service';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
-import { Prisma, CallStatus } from '@zagotours/database';
+import { Prisma, CallStatus } from '@roamify/database';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
 import { ReqParams, TypedRequest } from 'src/shared/types/express.types';
-import { CreateTripPlanningCallDto } from '@zagotours/types';
+import { CreateTripPlanningCallDto } from '@roamify/types';
 import { UuidParam } from 'src/common/validation/common.validation';
 
 export class TripPlanningCallController {

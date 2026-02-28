@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { EventService } from './event.service';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
-import { Prisma } from '@zagotours/database';
+import { Prisma } from '@roamify/database';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
 import {
   ReqBody,
@@ -17,7 +17,7 @@ import {
   UpdateEventDto,
   EventListQueryDto,
   MyBookingsQueryDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
 
 export class EventController {

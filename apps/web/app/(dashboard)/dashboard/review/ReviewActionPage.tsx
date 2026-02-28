@@ -11,7 +11,7 @@ import {
   RatingGroup,
 } from '@chakra-ui/react';
 import { useCreateReview, useUpdateReview } from '@/hooks';
-import { CreateReviewDto, UpdateReviewDto } from '@zagotours/types';
+import { CreateReviewDto, UpdateReviewDto } from '@roamify/types';
 
 interface ReviewModalProps {
   editingReview?: {

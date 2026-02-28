@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { FiPlus, FiEdit2, FiTrash2, FiEye } from 'react-icons/fi';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { EventResponseDto } from '@zagotours/types';
+import { EventResponseDto } from '@roamify/types';
 import { useDeleteEvent, useEvents } from '@/hooks';
 import { formatDate } from '@/utils/DateFormat';
 import { DataTable } from '../../_components/table/DataTable';

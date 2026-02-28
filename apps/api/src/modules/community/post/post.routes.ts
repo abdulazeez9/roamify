@@ -5,7 +5,7 @@ import { PostController } from './post.controller';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 import { upload } from 'src/config/multer.config';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 
 const router: Router = Router();
 

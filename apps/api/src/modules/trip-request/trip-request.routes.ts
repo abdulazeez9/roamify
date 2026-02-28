@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { TripRequestRepository } from './trip-request.repository';
 import { TripRequestService } from './trip-request.service';
 import { TripRequestController } from './trip-request.controller';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
 

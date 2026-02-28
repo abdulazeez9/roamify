@@ -41,7 +41,7 @@ export class CalendarService {
           attendees: details.attendees.map((email) => ({ email })),
           conferenceData: {
             createRequest: {
-              requestId: `zagotours-${Date.now()}`,
+              requestId: `roamify-${Date.now()}`,
               conferenceSolutionKey: { type: 'hangoutsMeet' },
             },
           },

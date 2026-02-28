@@ -29,7 +29,7 @@ import {
   useCreateItinerary,
 } from '@/hooks';
 import { LoadingState } from '@/components/ui/LoadingState';
-import { UpdateItineraryDto, ItineraryResponseDto } from '@zagotours/types';
+import { UpdateItineraryDto, ItineraryResponseDto } from '@roamify/types';
 
 export default function ItineraryPage() {
   const router = useRouter();

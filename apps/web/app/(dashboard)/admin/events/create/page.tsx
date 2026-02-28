@@ -20,7 +20,7 @@ import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { FiUploadCloud, FiX, FiCalendar, FiClock } from 'react-icons/fi';
 import { useCreateEvent } from '@/hooks';
-import { EventPricing } from '@zagotours/types';
+import { EventPricing } from '@roamify/types';
 import { SelectInput } from '@/components/ui/input/SelectInput';
 
 export default function CreateEventPage() {

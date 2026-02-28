@@ -5,7 +5,7 @@ import { ItineraryRepository } from './itinerary.repository';
 import { upload } from 'src/config/multer.config';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
 
 const router = Router();

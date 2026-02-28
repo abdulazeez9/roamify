@@ -3,7 +3,7 @@ import { DashboardController } from './dashboard.controller';
 import { DashboardService } from './dashboard.service';
 import { DashboardRepository } from './dashboard.repository';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
 
 // Initialize dependencies

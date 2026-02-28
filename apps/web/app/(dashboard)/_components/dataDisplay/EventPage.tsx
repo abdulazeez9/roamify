@@ -14,7 +14,7 @@ import { EventCard } from '@/components/ui/card/EventCard';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
 import { useEvents } from '@/hooks';
 import { Calendar, Clock } from 'lucide-react';
-import { EventResponseDto } from '@zagotours/types';
+import { EventResponseDto } from '@roamify/types';
 import { EventCardSkeleton } from '@/components/ui/card/Eventcardskeleton';
 
 export default function EventsPage() {

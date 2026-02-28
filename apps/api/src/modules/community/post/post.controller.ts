@@ -1,7 +1,7 @@
 import { Response, NextFunction } from 'express';
 import { PostService } from './post.service';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
-import { Prisma } from '@zagotours/database';
+import { Prisma } from '@roamify/database';
 import {
   ReqBody,
   ReqParams,
@@ -10,7 +10,7 @@ import {
 } from 'src/shared/types/express.types';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
 import { UuidParam } from 'src/common/validation/common.validation';
-import { CreatePostDto, UpdatePostDto } from '@zagotours/types';
+import { CreatePostDto, UpdatePostDto } from '@roamify/types';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
 
 export class PostController {

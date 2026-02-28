@@ -1,6 +1,6 @@
-import { Prisma, Role } from '@zagotours/database';
+import { Prisma, Role } from '@roamify/database';
 import { DashboardRepository } from './dashboard.repository';
-import { DashboardStatsResponse } from '@zagotours/types';
+import { DashboardStatsResponse } from '@roamify/types';
 import { BaseService } from 'src/common/service/base.service';
 
 export class DashboardService extends BaseService<

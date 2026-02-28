@@ -23,7 +23,7 @@ import {
   AdventureLevelLabels,
   TripTypeLabels,
   AdventureStatusLabels,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { LoadingState } from '@/components/ui/LoadingState';
 import { formatDate } from '@/utils/DateFormat';
 

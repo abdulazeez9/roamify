@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { Prisma } from '@zagotours/database';
+import { Prisma } from '@roamify/database';
 import { ResponseUtil } from '../utils/responseUtils';
 import {
   ForbiddenException,

@@ -1,5 +1,5 @@
 {
-  "extends": "@zagotours/typescript-config/react-library.json",
+  "extends": "@roamify/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
     "types": ["vitest/globals", "@testing-library/jest-dom"]

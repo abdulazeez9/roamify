@@ -2,7 +2,7 @@ import { apiRequest } from '@/lib/api';
 import { dashboardKeys } from './query-keys';
 import { useQuery } from '@tanstack/react-query';
 import { API_ENDPOINTS } from '@/config/api.config';
-import { DashboardStatsResponse, TopPerformers } from '@zagotours/types';
+import { DashboardStatsResponse, TopPerformers } from '@roamify/types';
 
 /**
  * Fetch dashboard statistics for the authenticated user

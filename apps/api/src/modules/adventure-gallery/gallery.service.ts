@@ -1,8 +1,8 @@
-import { AdventureGallery, Prisma } from '@zagotours/database';
+import { AdventureGallery, Prisma } from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { AdventureGalleryRepository } from './gallery.repository';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
-import { ReorderGalleryDto, MediaType } from '@zagotours/types';
+import { ReorderGalleryDto, MediaType } from '@roamify/types';
 
 export class AdventureGalleryService extends BaseService<
   AdventureGallery,

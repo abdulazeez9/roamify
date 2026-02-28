@@ -8,7 +8,7 @@ import {
   ForgotPasswordDto,
   ResetPasswordDto,
   AdminRegisterDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { apiRequest } from '@/lib/api';
 import { API_ENDPOINTS } from '@/config/api.config';
 import { authKeys } from './query-keys';

@@ -8,7 +8,7 @@ import {
 } from 'src/shared/types/express.types';
 import { UuidParam } from 'src/common/validation/common.validation';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
-import { CreateCallbackRequestDto } from '@zagotours/types';
+import { CreateCallbackRequestDto } from '@roamify/types';
 
 export class CallbackRequestController {
   constructor(private readonly callbackService: CallbackRequestService) {}

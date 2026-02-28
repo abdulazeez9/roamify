@@ -16,7 +16,7 @@ import { PaginationControl } from '@/components/ui/pagination/PaginationControl'
 import { LoadingState } from '@/components/ui/LoadingState';
 import { useAdventures, useEvents } from '@/hooks';
 import { Calendar, Compass } from 'lucide-react';
-import { AdventureResponseDto, EventResponseDto } from '@zagotours/types';
+import { AdventureResponseDto, EventResponseDto } from '@roamify/types';
 import { AdventureCardSkeleton } from '@/components/ui/card/Adventurecardskeleton';
 import { EventCardSkeleton } from '@/components/ui/card/Eventcardskeleton';
 

@@ -7,7 +7,7 @@ import Button from '@/components/ui/button/Button';
 
 import { formatDate } from '@/utils/DateFormat';
 import { useMyTripRequests } from '@/hooks';
-import { TripRequest } from '@zagotours/types';
+import { TripRequest } from '@roamify/types';
 import { Column, DataTable } from '../table/DataTable';
 import { DataTableSkeleton } from '../table/Datatableskeleton';
 

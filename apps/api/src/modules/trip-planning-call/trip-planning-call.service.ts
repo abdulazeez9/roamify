@@ -3,12 +3,12 @@ import {
   Prisma,
   CallStatus,
   prisma,
-} from '@zagotours/database';
+} from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { TripPlanningCallRepository } from './trip-planning-call.repository';
 import { CalendarService } from 'src/shared/utils/calendar.service';
 import { EmailService } from 'src/shared/services/email.service';
-import { ScheduleCallDto } from '@zagotours/types';
+import { ScheduleCallDto } from '@roamify/types';
 
 export class TripPlanningCallService extends BaseService<
   TripPlanningCall,

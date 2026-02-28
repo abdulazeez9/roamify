@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { ReviewRepository } from './review.repository';
 import { ReviewService } from './review.service';
 import { ReviewController } from './review.controller';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
 

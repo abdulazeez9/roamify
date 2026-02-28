@@ -1,5 +1,5 @@
 {
-  "extends": "@zagotours/typescript-config/nextjs.json",
+  "extends": "@roamify/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {

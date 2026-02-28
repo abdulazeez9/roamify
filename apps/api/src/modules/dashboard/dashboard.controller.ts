@@ -3,7 +3,7 @@ import { ReqParams, TypedRequest } from 'src/shared/types/express.types';
 import { DashboardService } from './dashboard.service';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 import { UuidParam } from 'src/common/validation/common.validation';
 
 export class DashboardController {

@@ -26,9 +26,9 @@ const getResendInstance = (): Resend => {
 
 export class EmailService {
   private static adminEmail =
-    process.env.PARTNERSHIP_EMAIL || 'partnerships@zagotours.com';
+    process.env.PARTNERSHIP_EMAIL || 'partnerships@roamify.com';
   private static supportEmail =
-    process.env.SUPPORT_EMAIL || 'support@zagotours.com';
+    process.env.SUPPORT_EMAIL || 'support@roamify.com';
 
   /**
    * Send a single email
@@ -131,7 +131,7 @@ export class EmailService {
           </div>
           <div class="content">
             <p>Hi,</p>
-            <p>We received a request to reset your password for your Zagotours account.</p>
+            <p>We received a request to reset your password for your roamify account.</p>
             
             <a href="${resetUrl}" class="button">Reset Password</a>
             
@@ -153,7 +153,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Reset Your Password - Zagotours',
+      subject: 'Reset Your Password - roamify',
       html,
     });
   }
@@ -191,7 +191,7 @@ export class EmailService {
             <h1>🔔 New General Inquiry</h1>
           </div>
           <div class="content">
-            <p>A new general inquiry has been submitted on Zagotours.</p>
+            <p>A new general inquiry has been submitted on roamify.</p>
             
             <div class="inquiry-details">
               <div class="detail-row">
@@ -235,7 +235,7 @@ export class EmailService {
             </div>
 
             <div class="timestamp">
-              <p>This is an automated notification from Zagotours Admin System</p>
+              <p>This is an automated notification from roamify Admin System</p>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@ export class EmailService {
 
     await this.sendEmail({
       to: this.adminEmail,
-      subject: `New Inquiry from ${inquiryData.email} - Zagotours`,
+      subject: `New Inquiry from ${inquiryData.email} - roamify`,
       html,
     });
   }
@@ -309,7 +309,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Trip Planning Call Request Received - Zagotours',
+      subject: 'Trip Planning Call Request Received - roamify',
       html,
     });
   }
@@ -347,7 +347,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'We Received Your Inquiry - Zagotours',
+      subject: 'We Received Your Inquiry - roamify',
       html,
     });
   }
@@ -390,7 +390,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Contract Ready for Signature - Zagotours',
+      subject: 'Contract Ready for Signature - roamify',
       html,
     });
   }
@@ -427,7 +427,7 @@ export class EmailService {
             <h1>✅ Contract Signed</h1>
           </div>
           <div class="content">
-            <p>A contract has been signed on Zagotours.</p>
+            <p>A contract has been signed on roamify.</p>
             
             <div class="contract-details">
               <div class="detail-row">
@@ -516,7 +516,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Contract Signed Successfully - Zagotours',
+      subject: 'Contract Signed Successfully - roamify',
       html,
     });
   }
@@ -612,7 +612,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: this.adminEmail,
-      subject: `New Trip Request: ${requestData.destination} - Zagotours`,
+      subject: `New Trip Request: ${requestData.destination} - roamify`,
       html,
     });
   }
@@ -696,7 +696,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: this.adminEmail,
-      subject: `New Callback Request from ${requestData.requestorName} - Zagotours`,
+      subject: `New Callback Request from ${requestData.requestorName} - roamify`,
       html,
     });
   }
@@ -805,7 +805,7 @@ export class EmailService {
           <a href="${process.env.ADMIN_URL || process.env.FRONTEND_URL}/admin/calls/${callData.callId}" class="button">Assign Agent</a>
           
           <div class="timestamp">
-            <p>This is an automated notification from Zagotours Admin System</p>
+            <p>This is an automated notification from roamify Admin System</p>
           </div>
         </div>
       </div>
@@ -815,7 +815,7 @@ export class EmailService {
 
     await this.sendEmail({
       to: this.adminEmail,
-      subject: `New Call Request - ${callData.adventurerName} - Zagotours`,
+      subject: `New Call Request - ${callData.adventurerName} - roamify`,
       html,
     });
   }
@@ -917,7 +917,7 @@ export class EmailService {
           <a href="${process.env.ADMIN_URL || process.env.FRONTEND_URL}/admin/trip-requests/${requestData.requestId}" class="button">Assign Agent</a>
           
           <div class="timestamp">
-            <p>This is an automated notification from Zagotours Admin System</p>
+            <p>This is an automated notification from roamify Admin System</p>
           </div>
         </div>
       </div>
@@ -927,7 +927,7 @@ export class EmailService {
 
     await this.sendEmail({
       to: this.adminEmail,
-      subject: `New Trip Request - ${requestData.destination} - Zagotours`,
+      subject: `New Trip Request - ${requestData.destination} - roamify`,
       html,
     });
   }
@@ -1005,7 +1005,7 @@ export class EmailService {
             <p><strong>Action Required:</strong> Please assign this request to an available agent or follow up directly.</p>
 
             <div class="timestamp">
-              <p>This is an automated notification from Zagotours Admin System</p>
+              <p>This is an automated notification from roamify Admin System</p>
             </div>
           </div>
         </div>
@@ -1087,7 +1087,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Call Rescheduled - Zagotours',
+      subject: 'Call Rescheduled - roamify',
       html,
     });
   }
@@ -1152,7 +1152,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Call Cancelled - Zagotours',
+      subject: 'Call Cancelled - roamify',
       html,
     });
   }

@@ -2,8 +2,8 @@ import { Response, NextFunction } from 'express';
 import { JwtUtil } from '../utils/jwt';
 import { ResponseUtil } from '../utils/responseUtils';
 import { TypedRequest } from '../types/express.types';
-import { Role } from '@zagotours/types';
-import { prisma } from '@zagotours/database';
+import { Role } from '@roamify/types';
+import { prisma } from '@roamify/database';
 
 export const authenticate = async (
   req: TypedRequest,

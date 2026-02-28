@@ -1,6 +1,6 @@
-import { TripPlanningCall, Prisma, CallStatus } from '@zagotours/database';
+import { TripPlanningCall, Prisma, CallStatus } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 export class TripPlanningCallRepository extends BaseRepository<
   TripPlanningCall,

@@ -14,7 +14,7 @@ import {
   Portal,
   Box,
 } from '@chakra-ui/react';
-import { ReviewResponseDto } from '@zagotours/types';
+import { ReviewResponseDto } from '@roamify/types';
 import { useDeleteReview, useUpdateReview } from '@/hooks';
 import Button from '@/components/ui/button/Button';
 import { AvatarImage } from '@/components/media/AvatarImage';

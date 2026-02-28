@@ -20,7 +20,7 @@ import {
   ChevronUp,
 } from 'lucide-react';
 import { ResponsiveImage } from '../../media/ResponsiveImage';
-import { AdventureDetailResponseDto } from '@zagotours/types';
+import { AdventureDetailResponseDto } from '@roamify/types';
 import { LuStar } from 'react-icons/lu';
 
 const ItineraryCard = ({

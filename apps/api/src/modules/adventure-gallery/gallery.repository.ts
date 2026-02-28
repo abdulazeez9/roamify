@@ -1,4 +1,4 @@
-import { AdventureGallery, Prisma, prisma } from '@zagotours/database';
+import { AdventureGallery, Prisma, prisma } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
 
 export class AdventureGalleryRepository extends BaseRepository<

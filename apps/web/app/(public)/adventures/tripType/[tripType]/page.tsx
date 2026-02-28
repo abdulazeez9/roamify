@@ -14,7 +14,7 @@ import {
 import AdventureCard from '@/components/ui/card/AdventureCard';
 import { useAdventures } from '@/hooks';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
-import { TripTypeLabels } from '@zagotours/types';
+import { TripTypeLabels } from '@roamify/types';
 import { ArrowLeft } from 'lucide-react';
 import { AppLink } from '@/components/ui/link/AppLink';
 import { AdventureCardSkeleton } from '@/components/ui/card/Adventurecardskeleton';

@@ -57,8 +57,8 @@ const PrivacyPolicy = () => {
           </Text>
           <Text mt={1}>
             Contact:{' '}
-            <Link color='blue.600' href='mailto:partnerships@zagotours.com'>
-              partnerships@zagotours.com
+            <Link color='blue.600' href='mailto:partnerships@roamify.com'>
+              partnerships@roamify.com
             </Link>
           </Text>
         </Box>
@@ -183,8 +183,8 @@ const PrivacyPolicy = () => {
           </Text>
           <Text>
             Contact:{' '}
-            <Link color='blue.600' href='mailto:partnerships@zagotours.com'>
-              partnerships@zagotours.com
+            <Link color='blue.600' href='mailto:partnerships@roamify.com'>
+              partnerships@roamify.com
             </Link>
           </Text>
         </Box>

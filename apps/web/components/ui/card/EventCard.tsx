@@ -13,7 +13,7 @@ import {
   AspectRatio,
   Badge,
 } from '@chakra-ui/react';
-import { EventResponseDto } from '@zagotours/types';
+import { EventResponseDto } from '@roamify/types';
 import { Calendar, MapPin, Timer } from 'lucide-react';
 import { AppLink } from '../link/AppLink';
 import { formatDate } from '@/utils/DateFormat';

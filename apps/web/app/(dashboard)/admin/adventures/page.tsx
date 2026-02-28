@@ -21,7 +21,7 @@ import { FiEdit, FiEye, FiTrash2, FiMoreVertical } from 'react-icons/fi';
 import { Grip } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useAdventures, useDeleteAdventure } from '@/hooks';
-import { Adventure } from '@zagotours/types';
+import { Adventure } from '@roamify/types';
 import { DataTable } from '../../_components/table/DataTable';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
 import { DataTableSkeleton } from '../../_components/table/Datatableskeleton';

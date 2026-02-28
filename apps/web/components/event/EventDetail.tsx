@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { ResponsiveImage } from '@/components/media/ResponsiveImage';
 import { AvatarImage } from '@/components/media/AvatarImage';
-import { EventResponseDto } from '@zagotours/types';
+import { EventResponseDto } from '@roamify/types';
 import { Calendar, MapPin, Timer, Users, Info } from 'lucide-react';
 import Button from '../ui/button/Button';
 import { formatDate } from '@/utils/DateFormat';

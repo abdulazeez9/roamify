@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { CheckCircleIcon, Heart } from 'lucide-react';
 import { ResponsiveImage } from '../../media/ResponsiveImage';
-import { AdventureDetailResponseDto } from '@zagotours/types';
+import { AdventureDetailResponseDto } from '@roamify/types';
 import Button from '../button/Button';
 import { AppLink } from '../link/AppLink';
 import { usePermissions, useToggleLikeAdventure } from '@/hooks';

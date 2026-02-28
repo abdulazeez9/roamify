@@ -17,7 +17,7 @@ import {
   RatingGroup,
   VStack,
 } from '@chakra-ui/react';
-import { Itinerary } from '@zagotours/types';
+import { Itinerary } from '@roamify/types';
 import { LuClock, LuMapPin } from 'react-icons/lu';
 import { ScrollProgressSteps } from '../ui/stepper/scroll-progress-step';
 import AdventureSkeleton from './AdevntureSkeleton';

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { GeneralInquiryRepository } from './general-inquiry.repository';
 import { GeneralInquiryService } from './general-inquiry.service';
 import { GeneralInquiryController } from './general-inquiry.controller';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
 

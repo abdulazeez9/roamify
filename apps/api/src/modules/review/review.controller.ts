@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { ReviewService } from './review.service';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
-import { Prisma } from '@zagotours/database';
+import { Prisma } from '@roamify/database';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
 import {
   ReqBody,
@@ -10,7 +10,7 @@ import {
   ReqQuery,
   TypedRequest,
 } from 'src/shared/types/express.types';
-import { CreateReviewDto, UpdateReviewDto } from '@zagotours/types';
+import { CreateReviewDto, UpdateReviewDto } from '@roamify/types';
 import { UuidParam } from 'src/common/validation/common.validation';
 
 export class ReviewController {

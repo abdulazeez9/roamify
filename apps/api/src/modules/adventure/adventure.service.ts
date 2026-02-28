@@ -1,4 +1,4 @@
-import { Adventure, Prisma } from '@zagotours/database';
+import { Adventure, Prisma } from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { AdventureRepository } from './adventure.repository';
 

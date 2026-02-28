@@ -1,5 +1,5 @@
 import cloudinary from 'src/config/cloudinary.config';
-import { MediaType } from '@zagotours/database';
+import { MediaType } from '@roamify/database';
 
 export interface UploadResult {
   url: string;
@@ -20,7 +20,7 @@ export type UploadContext =
 
 export class CloudinaryService {
   private static getFolderName(context: UploadContext): string {
-    return `zagotours/${context}`;
+    return `roamify/${context}`;
   }
 
   static async uploadFile(

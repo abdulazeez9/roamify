@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'https://api.zagotours.com/api';
+  process.env.NEXT_PUBLIC_API_URL || 'https://api.roamify.com/api';
 
 // Helper function to build URLs
 const buildUrl = (path: string) => `${API_BASE_URL}${path}`;

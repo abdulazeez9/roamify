@@ -1,5 +1,5 @@
 {
-  "name": "@zagotours/types",
+  "name": "@roamify/types",
   "version": "0.0.0",
   "private": true,
   "main": "./dist/index.js",
@@ -14,7 +14,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@zagotours/typescript-config": "workspace:*",
+    "@roamify/typescript-config": "workspace:*",
     "typescript": "^5.9.3",
     "vitest": "^4.0.16"
   }

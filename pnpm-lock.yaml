@@ -35,10 +35,10 @@ importers:
 
   apps/api:
     dependencies:
-      '@zagotours/database':
+      '@roamify/database':
         specifier: workspace:*
         version: link:../../packages/database
-      '@zagotours/types':
+      '@roamify/types':
         specifier: workspace:*
         version: link:../../packages/types
       bcrypt:
@@ -120,10 +120,10 @@ importers:
       '@types/supertest':
         specifier: ^6.0.3
         version: 6.0.3
-      '@zagotours/eslint-config':
+      '@roamify/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@zagotours/typescript-config':
+      '@roamify/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       nodemon:
@@ -168,10 +168,10 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.90.14
         version: 5.90.18(react@19.2.3)
-      '@zagotours/types':
+      '@roamify/types':
         specifier: workspace:*
         version: link:../../packages/types
-      '@zagotours/ui':
+      '@roamify/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       framer-motion:
@@ -247,10 +247,10 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^5.1.2
         version: 5.1.2(vite@7.3.1(@types/node@25.0.9)(tsx@4.21.0)(yaml@2.8.2))
-      '@zagotours/eslint-config':
+      '@roamify/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@zagotours/typescript-config':
+      '@roamify/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       cross-env:
@@ -344,7 +344,7 @@ importers:
 
   packages/types:
     devDependencies:
-      '@zagotours/typescript-config':
+      '@roamify/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       typescript:
@@ -389,10 +389,10 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^5.1.2
         version: 5.1.2(vite@7.3.1(@types/node@25.0.9)(tsx@4.21.0)(yaml@2.8.2))
-      '@zagotours/eslint-config':
+      '@roamify/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@zagotours/typescript-config':
+      '@roamify/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       eslint:

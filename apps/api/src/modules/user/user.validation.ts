@@ -1,6 +1,6 @@
 // src/modules/user/user.validation.ts
-import { Role } from '@zagotours/database';
-import { UserStatus } from '@zagotours/types';
+import { Role } from '@roamify/database';
+import { UserStatus } from '@roamify/types';
 import { commonValidation } from 'src/common/validation/common.validation';
 import { z } from 'zod';
 

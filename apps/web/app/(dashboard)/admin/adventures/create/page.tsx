@@ -29,7 +29,7 @@ import {
   AdventureLevelLabels,
   TripType,
   TripTypeLabels,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FiChevronLeft, FiUpload, FiX } from 'react-icons/fi';

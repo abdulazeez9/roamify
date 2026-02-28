@@ -13,7 +13,7 @@ import Button from '@/components/ui/button/Button';
 import { useState } from 'react';
 import { X } from 'lucide-react';
 import { useCreateTripRequest } from '@/hooks';
-import { TripType, TripTypeLabels } from '@zagotours/types';
+import { TripType, TripTypeLabels } from '@roamify/types';
 
 interface TripRequestDialogProps {
   open: boolean;

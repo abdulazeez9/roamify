@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { LuSend, LuMail, LuPhone, LuMapPin } from 'react-icons/lu';
 import { useCreateInquiry } from '@/hooks';
-import { CreateGeneralInquiryDto } from '@zagotours/types';
+import { CreateGeneralInquiryDto } from '@roamify/types';
 import { FormInput } from '@/components/ui/input/FormInput';
 
 export default function HelperForm() {

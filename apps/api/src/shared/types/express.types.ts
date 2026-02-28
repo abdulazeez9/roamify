@@ -1,4 +1,4 @@
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 import { Request } from 'express';
 
 interface AuthUser {

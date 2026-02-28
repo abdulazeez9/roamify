@@ -1,6 +1,6 @@
-import { PrismaClient } from '@zagotours/database';
-import { prisma } from '@zagotours/database';
-import { PaginationOptions, PaginationResult } from '@zagotours/types';
+import { PrismaClient } from '@roamify/database';
+import { prisma } from '@roamify/database';
+import { PaginationOptions, PaginationResult } from '@roamify/types';
 
 //===== BAS REPOSITORY =====
 export abstract class BaseRepository<

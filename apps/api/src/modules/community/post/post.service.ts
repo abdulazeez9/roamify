@@ -1,10 +1,10 @@
-import { MediaType, Post, prisma, Prisma } from '@zagotours/database';
+import { MediaType, Post, prisma, Prisma } from '@roamify/database';
 import {
   BaseService,
   NotFoundException,
 } from 'src/common/service/base.service';
 import { PostRepository } from './post.repository';
-import { CreatePostDto, UpdatePostDto } from '@zagotours/types';
+import { CreatePostDto, UpdatePostDto } from '@roamify/types';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
 
 export class PostService extends BaseService<

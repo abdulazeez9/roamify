@@ -1,8 +1,8 @@
-import { Itinerary, Prisma } from '@zagotours/database';
+import { Itinerary, Prisma } from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { ItineraryRepository } from './itinerary.repository';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
-import { UpdateItineraryDto, CreateItineraryDto } from '@zagotours/types';
+import { UpdateItineraryDto, CreateItineraryDto } from '@roamify/types';
 
 export class ItineraryService extends BaseService<
   Itinerary,

@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { createServer } from './server';
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 const port = process.env.PORT || 3000;
 const app = createServer();

@@ -30,7 +30,7 @@ import { useCallbackRequests, useDeleteCallbackRequest } from '@/hooks';
 import { Column, DataTable } from '../../_components/table/DataTable';
 import { AvatarImage } from '@/components/media/AvatarImage';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
-import { CallbackRequestResponseDto } from '@zagotours/types';
+import { CallbackRequestResponseDto } from '@roamify/types';
 import AdminTableWrapper from '../../_components/table/AdminTableWrapper';
 import { DataTableSkeleton } from '../../_components/table/Datatableskeleton';
 

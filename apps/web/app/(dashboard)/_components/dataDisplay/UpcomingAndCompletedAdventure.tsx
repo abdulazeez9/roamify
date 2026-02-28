@@ -13,7 +13,7 @@ import {
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
 import { useAdventures } from '@/hooks';
 import { Unlock, Calendar, CheckCircle } from 'lucide-react';
-import { AdventureResponseDto } from '@zagotours/types';
+import { AdventureResponseDto } from '@roamify/types';
 import { formatDate } from '@/utils/DateFormat';
 import { AppLink } from '@/components/ui/link/AppLink';
 import { Column, DataTable } from '../table/DataTable';

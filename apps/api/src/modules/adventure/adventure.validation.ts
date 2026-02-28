@@ -1,4 +1,4 @@
-import { AccessType, AdventureLevel } from '@zagotours/database';
+import { AccessType, AdventureLevel } from '@roamify/database';
 import { z } from 'zod';
 
 export const createAdventureSchema = z.object({

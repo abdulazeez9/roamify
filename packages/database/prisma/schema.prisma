@@ -430,7 +430,7 @@ model Contract {
 
 model PlatformSettings {
   id           String   @id @default(uuid())
-  siteName     String   @default("Zagotours")
+  siteName     String   @default("roamify")
   description  String?
   coverImage   String?
   publicId     String?

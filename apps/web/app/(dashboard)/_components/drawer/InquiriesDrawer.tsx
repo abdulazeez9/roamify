@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { Trash2, Mail } from 'lucide-react';
 import { useDeleteInquiry } from '@/hooks';
-import { GeneralInquiryResponseDto } from '@zagotours/types';
+import { GeneralInquiryResponseDto } from '@roamify/types';
 import Button from '@/components/ui/button/Button';
 
 interface InquiryViewDrawerProps {

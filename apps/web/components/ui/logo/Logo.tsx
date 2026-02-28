@@ -17,7 +17,7 @@ export const Logo = () => {
       <Box display='inline-block'>
         <Image
           src='/images/logo/zago logo png-03.webp'
-          alt='ZagoTours Logo'
+          alt='roamify Logo'
           width={90}
           height={90}
           quality={80}

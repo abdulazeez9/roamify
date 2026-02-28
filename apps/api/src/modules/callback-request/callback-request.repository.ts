@@ -1,6 +1,6 @@
-import { CallbackRequest, Prisma } from '@zagotours/database';
+import { CallbackRequest, Prisma } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 export class CallbackRequestRepository extends BaseRepository<
   CallbackRequest,

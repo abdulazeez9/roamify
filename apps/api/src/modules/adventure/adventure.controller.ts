@@ -6,7 +6,7 @@ import {
   AdventureListQueryDto,
   CreateAdventureDto,
   UpdateAdventureDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
 import {
   ReqBody,

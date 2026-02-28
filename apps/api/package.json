@@ -1,5 +1,5 @@
 {
-  "name": "@zagotours/api",
+  "name": "@roamify/api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@zagotours/database": "workspace:*",
-    "@zagotours/types": "workspace:*",
+    "@roamify/database": "workspace:*",
+    "@roamify/types": "workspace:*",
     "bcrypt": "^6.0.0",
     "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
@@ -48,8 +48,8 @@
     "@types/multer": "^2.0.0",
     "@types/node": "^25.0.3",
     "@types/supertest": "^6.0.3",
-    "@zagotours/eslint-config": "workspace:*",
-    "@zagotours/typescript-config": "workspace:*",
+    "@roamify/eslint-config": "workspace:*",
+    "@roamify/typescript-config": "workspace:*",
     "nodemon": "^3.1.11",
     "supertest": "^7.1.4",
     "ts-node": "^10.9.2",

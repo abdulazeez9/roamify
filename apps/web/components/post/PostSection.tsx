@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { PostCard } from '../ui/card/PostCard';
-import { PostResponseDto } from '@zagotours/types';
+import { PostResponseDto } from '@roamify/types';
 import Button from '../ui/button/Button';
 import { Users, SwatchBook, Info, Calendar, BadgeCheck } from 'lucide-react';
 import { useCommunityStore } from '@/store/use-community-store';
@@ -129,7 +129,7 @@ export default function PostSection({ posts }: PostSectionProps) {
                 <Stack gap={0}>
                   <Text fontWeight='bold'>Date Created</Text>
                   <Text fontSize='sm' color='gray.600'>
-                    Founded in 2024. Part of the global Zagotours network of
+                    Founded in 2024. Part of the global roamify network of
                     explorers.
                   </Text>
                 </Stack>

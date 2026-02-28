@@ -1,8 +1,8 @@
-import { CallbackRequest, Prisma, prisma } from '@zagotours/database';
+import { CallbackRequest, Prisma, prisma } from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { CallbackRequestRepository } from './callback-request.repository';
 import { EmailService } from 'src/shared/services/email.service';
-import { CreateCallbackRequestDto } from '@zagotours/types';
+import { CreateCallbackRequestDto } from '@roamify/types';
 
 export class CallbackRequestService extends BaseService<
   CallbackRequest,

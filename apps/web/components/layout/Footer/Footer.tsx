@@ -51,7 +51,7 @@ export default function Footer() {
           <Stack>
             <ResponsiveImage
               src='/images/logo/zago logo png-03.webp'
-              alt='ZagoTours Logo'
+              alt='roamify Logo'
               width={{ base: '35px', md: '45px' }}
               height={{ base: '35px', md: '45px' }}
               objectFit='contain'
@@ -91,7 +91,7 @@ export default function Footer() {
               </AppLink>
 
               <AppLink
-                href='https://www.tiktok.com/@zagotours?_r=1&_t=ZS-93g7ciMliOj'
+                href='https://www.tiktok.com/@roamify?_r=1&_t=ZS-93g7ciMliOj'
                 aria-label='Follow us on Tiktok'
               >
                 <Icon
@@ -105,7 +105,7 @@ export default function Footer() {
               </AppLink>
 
               <AppLink
-                href='https://youtube.com/@zagotours?si=BKyylHr3Xffm9TDI'
+                href='https://youtube.com/@roamify?si=BKyylHr3Xffm9TDI'
                 aria-label='Follow us on Youtube'
               >
                 <Icon
@@ -211,7 +211,7 @@ export default function Footer() {
             <Text fontWeight='bold' mb={2} color='textInverse'>
               Contact Us
             </Text>
-            <Text>Partnerships@zagotours.com</Text>
+            <Text>Partnerships@roamify.com</Text>
             <Text>Phone: +44-7418-627-748</Text>
           </Stack>
         </SimpleGrid>

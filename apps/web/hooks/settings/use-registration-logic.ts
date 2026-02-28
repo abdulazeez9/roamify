@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { CustomerRole, Role } from '@zagotours/types';
+import { CustomerRole, Role } from '@roamify/types';
 import { useRoleStore } from '@/store/role-selector.store';
 
 type RoleCategory = 'AFFILIATE' | 'ADVENTURER' | 'AGENT';

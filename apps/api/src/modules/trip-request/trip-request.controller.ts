@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { TripRequestService } from './trip-request.service';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
-import { Prisma, TripType } from '@zagotours/database';
+import { Prisma, TripType } from '@roamify/database';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
 import {
   ReqBody,
@@ -9,7 +9,7 @@ import {
   ReqQuery,
   TypedRequest,
 } from 'src/shared/types/express.types';
-import { CreateTripRequestDto } from '@zagotours/types';
+import { CreateTripRequestDto } from '@roamify/types';
 import { UuidParam } from 'src/common/validation/common.validation';
 
 export class TripRequestController {

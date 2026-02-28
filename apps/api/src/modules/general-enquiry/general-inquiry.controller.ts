@@ -12,7 +12,7 @@ import { UuidParam } from 'src/common/validation/common.validation';
 import {
   CreateGeneralInquiryDto,
   GeneralInquiryListQueryDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 export class GeneralInquiryController {
   constructor(private readonly inquiryService: GeneralInquiryService) {}
 

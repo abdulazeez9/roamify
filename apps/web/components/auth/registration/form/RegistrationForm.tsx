@@ -14,7 +14,7 @@ import { AgentTypeSelector } from '../AgentTypeSelector';
 import { IdentitySection } from './IdentitySection';
 import { DynamicRoleSection } from './DynamicRoleSection';
 import { SecuritySection } from './SecuritySection';
-import { RegisterDto, CustomerRole, Role } from '@zagotours/types';
+import { RegisterDto, CustomerRole, Role } from '@roamify/types';
 import { useAuth } from '@/hooks';
 import { useSearchParams } from 'next/navigation';
 

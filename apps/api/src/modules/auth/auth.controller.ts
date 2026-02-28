@@ -6,7 +6,7 @@ import {
   LoginDto,
   ResetPasswordDto,
   ForgotPasswordDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { asyncHandler } from 'src/shared/middleware/async-handler.middleware';
 import { ReqBody, TypedRequest } from 'src/shared/types/express.types';
 

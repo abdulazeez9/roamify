@@ -1,7 +1,7 @@
-import { GeneralInquiry, Prisma } from '@zagotours/database';
+import { GeneralInquiry, Prisma } from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { GeneralInquiryRepository } from './general-inquiry.repository';
-import { GeneralInquiryListQueryDto, PaginationResult } from '@zagotours/types';
+import { GeneralInquiryListQueryDto, PaginationResult } from '@roamify/types';
 import { EmailService } from 'src/shared/services/email.service';
 
 export class GeneralInquiryService extends BaseService<

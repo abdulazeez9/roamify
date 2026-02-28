@@ -1,5 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 import { FormField } from './FormField';
 
 export function IdentitySection({ finalRole }: { finalRole: Role | null }) {

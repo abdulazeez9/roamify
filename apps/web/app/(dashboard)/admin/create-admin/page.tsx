@@ -16,7 +16,7 @@ import {
 import { UserPlus, Mail, User, Phone, Globe, Lock } from 'lucide-react';
 import { useAuth } from '@/hooks';
 import { toaster } from '@/components/ui/toaster';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 
 export default function CreateAdmin() {
   const { registerAdmin, isRegisteringAdmin } = useAuth();

@@ -3,7 +3,7 @@
 import { Box, Flex, Field, Text, HStack, Separator } from '@chakra-ui/react';
 import { MapPin, SwatchBook, Tag, User, Users } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { PostResponseDto, TripTypeLabels } from '@zagotours/types';
+import { PostResponseDto, TripTypeLabels } from '@roamify/types';
 import { SearchBar } from '../ui/search/Search';
 import { SelectInput } from '../ui/input/SelectInput';
 import { getCountryOptions } from '@/utils/Countries';

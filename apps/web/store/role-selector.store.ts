@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CustomerRole } from '@zagotours/types';
+import { CustomerRole } from '@roamify/types';
 
 interface RoleState {
   role: string | CustomerRole;

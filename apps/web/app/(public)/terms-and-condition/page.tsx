@@ -181,9 +181,9 @@ const TermsAndConditions = () => {
                 <Link
                   color='blue.600'
                   textDecoration='underline'
-                  href='mailto:partnerships@zagotours.com'
+                  href='mailto:partnerships@roamify.com'
                 >
-                  partnerships@zagotours.com
+                  partnerships@roamify.com
                 </Link>
                 ).
               </Text>
@@ -278,9 +278,9 @@ const TermsAndConditions = () => {
                 color='blue.600'
                 fontWeight='bold'
                 textDecoration='underline'
-                href='mailto:partnerships@zagotours.com'
+                href='mailto:partnerships@roamify.com'
               >
-                partnerships@zagotours.com
+                partnerships@roamify.com
               </Link>
             </Box>
           </Stack>

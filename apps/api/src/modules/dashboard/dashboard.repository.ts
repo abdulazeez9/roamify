@@ -1,4 +1,4 @@
-import { Prisma, prisma } from '@zagotours/database';
+import { Prisma, prisma } from '@roamify/database';
 import {
   Role,
   CorporateAgentStats,
@@ -6,7 +6,7 @@ import {
   AffiliateStats,
   AdminStats,
   AdventurerStats,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { BaseRepository } from 'src/common/repository/base.repository';
 
 export class DashboardRepository extends BaseRepository<

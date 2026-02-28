@@ -50,9 +50,7 @@ export const createServer = (): Express => {
       cors({
         origin: [
           process.env.FRONTEND_URL || 'http://localhost:3000',
-          'https://staging.zagotours.com',
-          'https://zagotours.com',
-          'https://www.zagotours.com',
+          'https://roamify-tours.netlify.app',
         ],
         credentials: true,
         maxAge: 86400,

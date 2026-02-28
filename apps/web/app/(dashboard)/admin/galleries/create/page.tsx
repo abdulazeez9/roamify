@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { MediaType } from '@zagotours/types';
+import { MediaType } from '@roamify/types';
 import {
   Box,
   Button,

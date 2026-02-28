@@ -1,7 +1,7 @@
 import { Response, NextFunction } from 'express';
 import { TypedRequest } from 'src/shared/types/express.types';
 import { ResponseUtil } from 'src/shared/utils/responseUtils';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 
 /**
  * Middleware to authorize specific roles

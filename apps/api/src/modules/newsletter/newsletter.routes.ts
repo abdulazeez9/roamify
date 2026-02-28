@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { subscribeToNewsletter, getSubscribers } from './newsletter.controller';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 
 const router = Router();
 

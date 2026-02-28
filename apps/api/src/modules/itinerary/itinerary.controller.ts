@@ -8,7 +8,7 @@ import {
   UpdateItineraryDto,
   BulkCreateItinerariesDto,
   CreateItineraryDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 
 export class ItineraryController {
   constructor(private readonly service: ItineraryService) {}

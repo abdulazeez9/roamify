@@ -1,4 +1,4 @@
-import { PlatformGallery, Prisma, prisma } from '@zagotours/database';
+import { PlatformGallery, Prisma, prisma } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
 
 export class PlatformGalleryRepository extends BaseRepository<

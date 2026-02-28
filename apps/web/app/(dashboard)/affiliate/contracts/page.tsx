@@ -5,7 +5,7 @@ export default function AffiliateContracts() {
   return (
     <Box>
       <Text textAlign='center'>
-        Please contact the administrator partnership@zagotours.com
+        Please contact the administrator partnership@roamify.com
       </Text>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 import { z } from 'zod';
 
 // Helper to get valid customer role values for zod enum

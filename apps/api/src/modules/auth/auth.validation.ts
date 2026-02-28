@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 
 export const registerSchema = z.object({
   name: z.string().min(2),

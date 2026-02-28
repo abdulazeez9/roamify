@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 
 import { useMyPlanningCalls } from '@/hooks';
-import { TripPlanningCallResponseDto } from '@zagotours/types';
+import { TripPlanningCallResponseDto } from '@roamify/types';
 import { ReschedulePlanningCallDialog } from '../../_components/dialogs/ReschedulePlanningCallDialog';
 import { CancelPlanningCallDialog } from '../../_components/dialogs/CancelPlanningCallDialog';
 import { formatDate } from '@/utils/DateFormat';

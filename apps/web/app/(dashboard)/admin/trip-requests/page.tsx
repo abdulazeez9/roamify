@@ -30,7 +30,7 @@ import {
   User,
   Mail,
 } from 'lucide-react';
-import { TripRequestResponseDto } from '@zagotours/types';
+import { TripRequestResponseDto } from '@roamify/types';
 import AdminTableWrapper from '../../_components/table/AdminTableWrapper';
 import { DataTableSkeleton } from '../../_components/table/Datatableskeleton';
 

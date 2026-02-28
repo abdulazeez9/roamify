@@ -1,4 +1,4 @@
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 export class PlatformSettingsService {
   async get() {

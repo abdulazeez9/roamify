@@ -10,7 +10,7 @@ import {
   Text,
   Center,
 } from '@chakra-ui/react';
-import { EventResponseDto } from '@zagotours/types';
+import { EventResponseDto } from '@roamify/types';
 import React, { useMemo, useState } from 'react';
 import { EventCard } from '../ui/card/EventCard';
 import { SelectInput } from '../ui/input/SelectInput';

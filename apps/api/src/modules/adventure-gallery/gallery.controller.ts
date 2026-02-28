@@ -13,7 +13,7 @@ import {
   BulkUploadGalleryDto,
   ReorderGalleryDto,
   MediaType,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
 
 export class AdventureGalleryController {

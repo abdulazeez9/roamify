@@ -5,7 +5,7 @@ import { AdventureGalleryRepository } from './gallery.repository';
 import { upload } from 'src/config/multer.config';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
 import { authorizeRoles } from 'src/shared/middleware/authorization.middleware';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 
 const router = Router();
 const repository = new AdventureGalleryRepository();

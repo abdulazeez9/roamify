@@ -1,4 +1,4 @@
-import { Itinerary, Prisma, prisma } from '@zagotours/database';
+import { Itinerary, Prisma, prisma } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
 
 export class ItineraryRepository extends BaseRepository<

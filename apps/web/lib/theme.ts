@@ -4,11 +4,11 @@ export const customConfig = defineConfig({
   theme: {
     tokens: {
       colors: {
-        primary: { value: '#196469' },
-        secondary: { value: '#FFFF00' },
-        dark: { value: '#141414' },
-        surface: { value: '#F1F5EB' },
-        textPrimary: { value: '#e6e6e6' },
+        primary: { value: '#4A1D96' },
+        secondary: { value: '#F97316' },
+        dark: { value: '#0F0A1E' },
+        surface: { value: '#F5F3FF' },
+        textPrimary: { value: '#E9D5FF' },
         textInverse: { value: '#FFFFFF' },
       },
       fonts: {

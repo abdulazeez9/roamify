@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 import { ROLE_ACCESS, ROLE_HOME } from './config/roles.config';
 
 // Routes that require authentication but are not role-specific

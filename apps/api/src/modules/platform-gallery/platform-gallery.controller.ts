@@ -13,9 +13,9 @@ import {
   CreateGalleryDto,
   UpdateGalleryDto,
   GalleryQueryDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { CloudinaryService } from 'src/shared/services/cloudinary.service';
-import { Prisma } from '@zagotours/database';
+import { Prisma } from '@roamify/database';
 import { PlatformGalleryService } from './platform-gallery.service';
 
 export class PlatformGalleryController {

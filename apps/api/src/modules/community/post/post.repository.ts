@@ -1,6 +1,6 @@
-import { Post, Prisma } from '@zagotours/database';
+import { Post, Prisma } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 export class PostRepository extends BaseRepository<
   Post,

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Text, Badge, IconButton, HStack, VStack } from '@chakra-ui/react';
 import { Eye, Trash2, Star } from 'lucide-react';
 import { useReviews, useToggleFeaturedReview } from '@/hooks';
-import { ReviewResponseDto } from '@zagotours/types';
+import { ReviewResponseDto } from '@roamify/types';
 import { Column, DataTable } from '../../_components/table/DataTable';
 import AdminTableWrapper from '../../_components/table/AdminTableWrapper';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';

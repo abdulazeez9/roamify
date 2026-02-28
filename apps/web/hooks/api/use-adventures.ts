@@ -8,7 +8,7 @@ import {
   CreateAdventureDto,
   PaginatedResponse,
   ReorderGalleryDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { notify } from '@/lib/toast';
 
 // ============================================

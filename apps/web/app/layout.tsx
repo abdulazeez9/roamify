@@ -24,8 +24,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Zagotours',
-    template: '%s | Zagotours',
+    default: 'roamify',
+    template: '%s | roamify',
   },
   description:
     'Making adventure tourism safe for young travelers 18-35 again. Find and book thrilling trips vetted against our safety standards. ',
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     apple: '/favicon.ico',
   },
   openGraph: {
-    title: 'Zagotours',
+    title: 'roamify',
     description: 'Your custom description here.',
-    url: 'https://zagotours.com',
-    siteName: 'Zagotours',
+    url: 'https://roamify.com',
+    siteName: 'roamify',
     type: 'website',
   },
 };

@@ -1,7 +1,7 @@
-import { Event, prisma, Prisma } from '@zagotours/database';
+import { Event, prisma, Prisma } from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { EventRepository } from './event.repository';
-import { EventStatus } from '@zagotours/types';
+import { EventStatus } from '@roamify/types';
 import { EmailService } from 'src/shared/services/email.service';
 
 export class EventService extends BaseService<

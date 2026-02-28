@@ -41,7 +41,7 @@ import {
   TripTypeLabels,
   AdventureStatusLabels,
   UpdateAdventureDto,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { LoadingState } from '@/components/ui/LoadingState';
 
 type FormDataWithImage = Omit<UpdateAdventureDto, 'rating'> & {

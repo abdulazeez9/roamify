@@ -15,7 +15,7 @@ import {
   IndependentAgentStats,
   AffiliateStats,
   AdventurerStats,
-} from '@zagotours/types';
+} from '@roamify/types';
 import { StatCardData } from './stat-card';
 import { AlertCircle } from 'lucide-react';
 

@@ -10,7 +10,7 @@ import {
   createAdventureSchema,
 } from './adventure.validation';
 import { authenticate } from 'src/shared/middleware/authentication.middleware';
-import { Role } from '@zagotours/database';
+import { Role } from '@roamify/database';
 import { authorizeRoles } from '../../shared/middleware/authorization.middleware';
 
 const router: Router = Router();

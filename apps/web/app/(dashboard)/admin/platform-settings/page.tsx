@@ -145,7 +145,7 @@ export default function PlatformSettingsPage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, siteName: e.target.value }))
                 }
-                placeholder='e.g. Zagotours'
+                placeholder='e.g. roamify'
               />
             </Field.Root>
 
@@ -157,7 +157,7 @@ export default function PlatformSettingsPage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, contactEmail: e.target.value }))
                 }
-                placeholder='hello@zagotours.com'
+                placeholder='hello@roamify.com'
               />
             </Field.Root>
 

@@ -1,7 +1,7 @@
-import { TripRequest, Prisma, prisma, TripType } from '@zagotours/database';
+import { TripRequest, Prisma, prisma, TripType } from '@roamify/database';
 import { BaseService } from 'src/common/service/base.service';
 import { TripRequestRepository } from './trip-request.repository';
-import { CreateTripRequestDto } from '@zagotours/types';
+import { CreateTripRequestDto } from '@roamify/types';
 import { EmailService } from 'src/shared/services/email.service';
 
 export class TripRequestService extends BaseService<

@@ -14,7 +14,7 @@ import {
   CloseButton,
   Portal,
 } from '@chakra-ui/react';
-import { PostResponseDto } from '@zagotours/types';
+import { PostResponseDto } from '@roamify/types';
 import { useDeletePost, useUpdatePost } from '@/hooks';
 import { AvatarImage } from '@/components/media/AvatarImage';
 import Button from '@/components/ui/button/Button';

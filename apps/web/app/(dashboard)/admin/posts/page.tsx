@@ -15,7 +15,7 @@ import { LoadingState } from '@/components/ui/LoadingState';
 import AdminTableWrapper from '../../_components/table/AdminTableWrapper';
 import { Column, DataTable } from '../../_components/table/DataTable';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
-import { PostResponseDto } from '@zagotours/types';
+import { PostResponseDto } from '@roamify/types';
 import { usePosts, useDeletePost, useUpdatePost } from '@/hooks';
 import { AvatarImage } from '@/components/media/AvatarImage';
 import {

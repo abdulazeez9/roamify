@@ -1,6 +1,6 @@
 'use client';
 import { Box, Flex, RadioGroup } from '@chakra-ui/react';
-import { Role } from '@zagotours/types';
+import { Role } from '@roamify/types';
 
 type AgentType = Role.INDEPENDENT_AGENT | Role.COOPERATE_AGENT;
 

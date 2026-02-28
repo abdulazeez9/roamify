@@ -21,7 +21,7 @@ import { AvatarImage } from '@/components/media/AvatarImage';
 import { PaginationControl } from '@/components/ui/pagination/PaginationControl';
 import { Eye, Pencil, Trash2, Users } from 'lucide-react';
 import { DataTableSkeleton } from '../../_components/table/Datatableskeleton';
-import { User } from '@zagotours/types';
+import { User } from '@roamify/types';
 import Button from '@/components/ui/button/Button';
 
 export default function UsersAdminPage() {
@@ -39,7 +39,6 @@ export default function UsersAdminPage() {
   const deleteUserMutation = useDeleteUser();
   const currentUser = res?.data;
 
-  
   //Handle view
   const handleView = (user: User) => {
     router.push(`/admin/users/${user.id}`);

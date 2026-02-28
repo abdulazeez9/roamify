@@ -1,5 +1,5 @@
 config:
-  target: "https://api-staging.zagotours.com" 
+  target: "https://api-staging.roamify.com" 
   environments:
     load:
       phases:

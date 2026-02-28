@@ -1,6 +1,6 @@
-import { TripRequest, Prisma, TripType } from '@zagotours/database';
+import { TripRequest, Prisma, TripType } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
-import { prisma } from '@zagotours/database';
+import { prisma } from '@roamify/database';
 
 export class TripRequestRepository extends BaseRepository<
   TripRequest,

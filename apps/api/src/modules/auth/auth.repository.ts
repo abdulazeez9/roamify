@@ -1,4 +1,4 @@
-import { prisma, Prisma, Role, User } from '@zagotours/database';
+import { prisma, Prisma, Role, User } from '@roamify/database';
 import { BaseRepository } from 'src/common/repository/base.repository';
 
 export class AuthRepository extends BaseRepository<
