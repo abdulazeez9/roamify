@@ -1,0 +1,472 @@
+// --- CONFIGURATION ---
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// --- ENUMS ---
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  AFFILIATE
+  ADVENTURER
+  INDEPENDENT_AGENT
+  COOPERATE_AGENT
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+enum AdventureStatus {
+  DRAFT
+  ACTIVE
+  COMPLETED
+}
+
+enum AdventureLevel {
+  MEDIUM
+  CHALLENGING
+  HARD
+}
+
+enum AccessType {
+  LOCKED
+  UNLOCKED
+}
+
+enum CallStatus {
+  SCHEDULED
+  EXPIRED
+  COMPLETED
+  CANCELLED
+}
+
+enum ContractStatus {
+  SIGNED
+  NOT_SIGNED
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  DOCUMENT
+}
+
+enum EventStatus {
+  CONFIRMED
+  CANCELLED
+  ATTENDED
+}
+
+enum EventPricing {
+  FREE
+  PAID
+}
+
+enum TripType {
+  HIKING
+  KAYAKING
+  CANOEING
+  SNOWBOARDING
+  TREKKING
+  SKIING
+  SKYDIVING
+  SAFARIS
+  CLIMBING
+  JUMPING
+  RAFTING
+}
+
+// --- USER MODELS ---
+
+model User {
+  id                   String          @id @default(uuid())
+  name                 String
+  email                String          @unique
+  phone                String?
+  image                String?
+  country              String?
+  password             String
+  // Password Reset Fields
+  resetPasswordToken   String?         @unique
+  resetPasswordExpires DateTime?
+  role                 Role            @default(ADVENTURER)
+  status               UserStatus      @default(ACTIVE)
+  safetyAmbassador     Boolean         @default(false)
+  referralCode         String          @unique
+  // Referral System (Self-relation)
+  referredById         String?
+  referrer             User?           @relation("UserReferrals", fields: [referredById], references: [id])
+  referees             User[]          @relation("UserReferrals")
+  reviews              Review[]
+  adventureLikes       AdventureLike[]
+
+  // Role Specific Profiles
+  independentDetails IndependentAgent?
+  cooperateDetails   CooperateAgent?
+  affiliateDetails   Affiliate?
+
+  // Activity & Social
+  posts              Post[]
+  comments           Comment[]
+  likes              Like[]
+  shares             Share[]
+  contracts          Contract[]
+  eventRegistrations EventRegistration[]
+  // Meeting Calls
+  plannedCalls       TripPlanningCall[]  @relation("AdventurerCalls")
+  agentCalls         TripPlanningCall[]  @relation("AgentCalls")
+
+  //Trip request
+  tripRequests         TripRequest[] @relation("AdventurerTripRequests")
+  assignedTripRequests TripRequest[] @relation("AgentTripRequests")
+
+  //Callback request
+  callbackRequests         CallbackRequest[] @relation("AdventurerCallbacks")
+  assignedCallbackRequests CallbackRequest[] @relation("AgentCallbacks")
+
+  //Event
+  events    Event[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+model IndependentAgent {
+  id             String   @id @default(uuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id])
+  certifications String[]
+  howDidYouHear  String?
+}
+
+model CooperateAgent {
+  id                        String  @id @default(uuid())
+  userId                    String  @unique
+  user                      User    @relation(fields: [userId], references: [id])
+  companyName               String
+  travelBusinessDescription String
+  howDidYouHear             String?
+}
+
+model Affiliate {
+  id             String   @id @default(uuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id])
+  communityBrand String
+  socialLinks    String[]
+  howDidYouHear  String?
+}
+
+// --- ADVENTURE & CONTENT MODELS ---
+
+model Adventure {
+  id                 String          @id @default(uuid())
+  title              String
+  isVerified         Boolean         @default(false)
+  price              Decimal
+  location           String
+  level              AdventureLevel
+  tripType           TripType
+  safetyScore        Int             @default(0)
+  safetyTips         String?
+  rating             Float           @default(0.0)
+  certification      String?
+  gear               String?
+  status             AdventureStatus @default(DRAFT)
+  mediaUrl           String?
+  publicId           String?
+  date               DateTime
+  description        String
+  days               Int
+  access             AccessType      @default(LOCKED)
+  lastSafetyCertDate DateTime?
+  inclusions         String?
+  exclusions         String?
+  partnerDescription String?
+  likes       AdventureLike[]
+  itineraries Itinerary[]
+  gallery     AdventureGallery[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+model AdventureLike {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  adventureId String
+  adventure   Adventure @relation(fields: [adventureId], references: [id])
+
+  @@unique([userId, adventureId])
+}
+
+model Itinerary {
+  id              String    @id @default(uuid())
+  adventureId     String
+  adventure       Adventure @relation(fields: [adventureId], references: [id], onDelete: Cascade)
+  dayNumber       Int
+  title           String
+  activityDetails String
+  imageUrl        String?
+  publicId        String?
+
+  @@index([adventureId])
+}
+
+model AdventureGallery {
+  id        String    @id @default(uuid())
+  mediaUrl  String
+  publicId  String?
+  mediaType MediaType @default(IMAGE)
+  altText   String?
+  order     Int       @default(0)
+
+  adventureId String
+  adventure   Adventure @relation(fields: [adventureId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+
+  @@index([adventureId])
+}
+
+// --- REVIEW MODELS ---
+model Review {
+  id         String  @id @default(uuid())
+  title      String?
+  content    String  @db.Text
+  rating     Int     @default(5)
+  isFeatured Boolean @default(false)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+// --- COMMUNITY MODELS ---
+
+model Post {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  title       String
+  description String
+  mediaUrl    String?
+  publicId    String?
+  mediaType   MediaType @default(IMAGE)
+  comments    Comment[]
+  likes       Like[]
+  shares      Share[]
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  @@index([userId])
+}
+
+model Comment {
+  id        String    @id @default(uuid())
+  postId    String
+  post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  content   String
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+
+  @@index([postId])
+  @@index([userId])
+}
+
+model Like {
+  id     String @id @default(uuid())
+  postId String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@unique([userId, postId])
+}
+
+model Share {
+  id     String @id @default(uuid())
+  postId String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@unique([userId, postId])
+}
+
+// --- FORM & SERVICE MODELS ---
+
+model Event {
+  id                String              @id @default(uuid())
+  title             String
+  date              DateTime
+  description       String
+  location          String
+  pricing           EventPricing        @default(FREE)
+  creator           User                @relation(fields: [createdBy], references: [id])
+  createdBy         String
+  spotLeft          Int
+  joinTill          DateTime
+  isSignature       Boolean             @default(false)
+  cancellationTerms String
+  registrations     EventRegistration[]
+  mediaUrl          String?
+  publicId          String?
+  createdAt         DateTime            @default(now())
+  deletedAt         DateTime?
+}
+
+// 3. Create the new Registration model
+model EventRegistration {
+  id      String @id @default(uuid())
+  eventId String
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  userId  String
+  user    User   @relation(fields: [userId], references: [id])
+
+  status    EventStatus @default(CONFIRMED)
+  createdAt DateTime    @default(now())
+
+  @@unique([userId, eventId]) // Prevents double booking
+  @@index([eventId])
+  @@index([userId])
+}
+
+model TripRequest {
+  id           String @id @default(uuid())
+  adventurerId String
+  adventurer   User   @relation("AdventurerTripRequests", fields: [adventurerId], references: [id])
+
+  assignedAgentId String?
+  assignedAgent   User?   @relation("AgentTripRequests", fields: [assignedAgentId], references: [id])
+
+  tripType    TripType
+  destination String
+  date        DateTime
+  preferences String?
+  createdAt   DateTime @default(now())
+
+  @@index([adventurerId])
+  @@index([assignedAgentId])
+}
+
+model CallbackRequest {
+  id       String @id @default(uuid())
+  name     String
+  email    String
+  phone    String
+  bestTime String
+
+  adventurerId String?
+  adventurer   User?   @relation("AdventurerCallbacks", fields: [adventurerId], references: [id])
+
+  assignedAgentId String?
+  assignedAgent   User?   @relation("AgentCallbacks", fields: [assignedAgentId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@index([adventurerId])
+  @@index([assignedAgentId])
+}
+
+model GeneralInquiry {
+  id        String   @id @default(uuid())
+  email     String
+  message   String
+  phone     String?
+  address   String?
+  createdAt DateTime @default(now())
+}
+
+model TripPlanningCall {
+  id           String  @id @default(uuid())
+  adventurerId String
+  adventurer   User    @relation("AdventurerCalls", fields: [adventurerId], references: [id])
+  agentId      String?
+  agent        User?   @relation("AgentCalls", fields: [agentId], references: [id])
+
+  calendarEventId String?   @unique
+  meetingLink     String?
+  startTime       DateTime
+  endTime         DateTime?
+
+  status    CallStatus @default(SCHEDULED)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Contract {
+  id          String         @id @default(uuid())
+  userId      String
+  user        User           @relation(fields: [userId], references: [id])
+  agreement   String
+  status      ContractStatus @default(NOT_SIGNED)
+  signedAt    DateTime?
+  documentUrl String
+  publicId    String?
+  createdAt   DateTime       @default(now())
+}
+
+// --- SETTINGS MODELS ---
+
+model PlatformSettings {
+  id           String   @id @default(uuid())
+  siteName     String   @default("Zagotours")
+  description  String?
+  coverImage   String?
+  publicId     String?
+  contactEmail String?
+  maintenance  Boolean  @default(false)
+  updatedAt    DateTime @updatedAt
+}
+
+model DestinationCountry {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  code      String?
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+}
+
+
+model NewsletterSubscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+
+
+model PlatformGallery {
+  id        String    @id @default(uuid())
+  title     String?
+  mediaUrl  String
+  publicId  String?
+  mediaType MediaType @default(IMAGE)
+  category  String?   
+  featured  Boolean   @default(false)
+  order     Int       @default(0)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}

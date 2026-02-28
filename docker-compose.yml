@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: zagotours-db
+    restart: always
+    environment:
+      POSTGRES_USER: zagotours
+      POSTGRES_PASSWORD: zagotours123
+      POSTGRES_DB: zagotours_db
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U zagotours -d zagotours_db']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+      args:
+        - APP_NAME=@zagotours/api
+    container_name: api
+    restart: always
+    env_file:
+      - ./apps/api/.env
+    environment:
+      - DATABASE_URL=postgresql://zagotours:zagotours123@postgres:5432/zagotours_db
+    ports:
+      - '3001:3001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

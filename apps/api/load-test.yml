@@ -1,0 +1,136 @@
+config:
+  target: "https://api-staging.zagotours.com" 
+  environments:
+    load:
+      phases:
+        - duration: 60    # Warm up: 1 min, 5 users/sec
+          arrivalRate: 5
+          name: "Warm up"
+        - duration: 120   # Ramp up: 2 mins, up to 20 users/sec
+          arrivalRate: 5
+          rampTo: 20
+          name: "Ramp up"
+        - duration: 120   # Sustained: 2 mins, hold at 20 users/sec
+          arrivalRate: 20
+          name: "Sustained load"
+        - duration: 60    # Cool down: 1 min
+          arrivalRate: 5
+          name: "Cool down"
+    smoke:
+      phases:
+        - duration: 30
+          arrivalRate: 2
+          name: "Smoke test"
+  defaults:
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+
+  # Thresholds - test FAILS if these are breached
+  ensure:
+    p95: 2000     # 95% of requests must respond under 2s
+    p99: 5000     # 99% of requests must respond under 5s
+    maxErrorRate: 1  # Less than 1% error rate
+
+scenarios:
+  # ─── 1. Public routes (no auth needed) ───────────────────────────────────
+  - name: "Health & Public Endpoints"
+    weight: 30   # 30% of virtual users run this
+    flow:
+      - get:
+          url: "/api/health"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api/adventures"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api/events"
+          expect:
+            - statusCode: 200
+
+  # ─── 2. Auth rate-limit routes (intentionally low weight) ─────────────────
+  - name: "Auth Routes"
+    weight: 10   
+    flow:
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "abdulazeezmuritador9@gmail.com"
+            password: "password123"
+          expect:
+            - statusCode:
+                - 200
+                - 401
+                - 429  # rate limited is also acceptable
+
+  # ─── 3. Public form submissions ───────────────────────────────────────────
+  - name: "Lead Generation Forms"
+    weight: 20
+    flow:
+      - post:
+          url: "/api/callback-requests"
+          json:
+            name: "Test User"
+            phone: "+1234567890"
+            preferredTime: "morning"
+          expect:
+            - statusCode:
+                - 200
+                - 201
+                - 429  # rate limited is fine
+
+      - post:
+          url: "/api/inquiries"
+          json:
+            name: "Test User"
+            email: "test@example.com"
+            message: "I am interested in a tour"
+          expect:
+            - statusCode:
+                - 200
+                - 201
+                - 429
+
+      - post:
+          url: "/api/newsletter/subscribe"
+          json:
+            email: "loadtest@example.com"
+          expect:
+            - statusCode:
+                - 200
+                - 201
+                - 409  # already subscribed
+                - 429
+
+  # ─── 4. Content browsing ──────────────────────────────────────────────────
+  - name: "Browse Content"
+    weight: 40   # Most traffic will be browsing
+    flow:
+      - get:
+          url: "/api/adventures"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api/posts"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api/reviews"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api/events"
+          expect:
+            - statusCode: 200
