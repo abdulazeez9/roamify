@@ -50,22 +50,6 @@ export function LoginForm() {
 
           <Stack gap={4}>
             {/* SERVER-SIDE ERROR DISPLAY */}
-            {/* {loginError && (
-              <Box
-                p={3}
-                bg='red.50'
-                borderWidth={1}
-                borderColor='red.200'
-                borderRadius='md'
-              >
-                <Text color='red.700' fontSize='sm'>
-                  {loginError instanceof Error &&
-                  loginError.message === 'CredentialsSignin'
-                    ? 'Invalid email or password. Please try again.'
-                    : loginError.message}
-                </Text>
-              </Box>
-            )} */}
 
             <Controller
               name='email'

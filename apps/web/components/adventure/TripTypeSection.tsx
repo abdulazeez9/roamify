@@ -1,6 +1,6 @@
 'use client';
 
-import { SimpleGrid, Container, Heading } from '@chakra-ui/react';
+import { SimpleGrid, Container, Heading, Box } from '@chakra-ui/react';
 import { TripTypeCard } from '../ui/card/TripTypeCard';
 import { TripType, TripTypeLabels } from '@roamify/types';
 import { useAdventureTripTypeCounts } from '@/hooks';
@@ -34,21 +34,18 @@ export default function TripTypeSection() {
   });
 
   return (
-    <Container maxW='container.lg' py={10}>
-      <Heading
-        mb={6}
-        size={{ base: '2xl', md: '4xl' }}
-        lineHeight='1.2'
-        textAlign='center'
-      >
-        Adventures
-      </Heading>
+    <Container maxW='container.xl' py={6}>
+      <Box textAlign='center' mb={8}>
+        <Heading color='primary' size='2xl' mb={2}>
+          Browse by Activity
+        </Heading>
+      </Box>
 
       <SimpleGrid
-        columns={{ base: 1, md: 5 }}
-        gap={{ base: 4 }}
-        rowGap={5}
-        maxW={{ lg: '1000px', xl: '1200px' }}
+        columns={{ base: 2, md: 3, lg: 5 }}
+        gap={4}
+        rowGap={6}
+        maxW='1200px'
         mx='auto'
         px={4}
       >

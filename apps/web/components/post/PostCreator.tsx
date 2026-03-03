@@ -1,9 +1,10 @@
 'use client';
 
-import { Box, Flex, HStack, Text } from '@chakra-ui/react';
+import { Box, Flex, HStack, IconButton, Text } from '@chakra-ui/react';
 import { CirclePlay, Image as ImageIcon } from 'lucide-react';
 import Button from '../ui/button/Button';
 import { usePostModalStore } from '@/store/usePostModalStore';
+import { AvatarImage } from '../media/AvatarImage';
 
 export function PostCreator({
   userName,
@@ -16,39 +17,46 @@ export function PostCreator({
 
   return (
     <Box
-      my={6}
+      onClick={openModal}
+      cursor='pointer'
       bg='white'
-      borderRadius='lg'
-      borderWidth='1px'
+      p={3}
+      borderRadius='24px'
+      border='1px solid'
       borderColor='gray.100'
-      p={4}
-      boxShadow='sm'
+      transition='all 0.3s ease'
+      _hover={{
+        transform: 'translateY(-2px)',
+        boxShadow: '0 12px 20px -10px rgba(128, 0, 128, 0.15)',
+        borderColor: 'primary.200',
+      }}
     >
-      <Flex gap={3} align='center'>
-        <Box flex={1} onClick={openModal} cursor='pointer'>
-          <Text color='dark' fontSize='lg'>
-            Share your experience
+      <HStack spaceX={4}>
+        <AvatarImage src={userImage} name={userName} size='sm' />
+        <Box flex={1}>
+          <Text color='gray.400' fontSize='md'>
+            What's on your mind, {userName.split(' ')[0]}?
           </Text>
         </Box>
-
-        <HStack borderTop='1px solid' borderColor='gray.50' align='center'>
-          <HStack gap={4}>
-            <ImageIcon size={32} cursor='pointer' onClick={openModal} />
-            <CirclePlay size={32} cursor='pointer' onClick={openModal} />
-          </HStack>
-
+        <HStack spaceX={2}>
+          <IconButton
+            variant='ghost'
+            color='primary.500'
+            aria-label='Add Image'
+          >
+            <ImageIcon size={20} />
+          </IconButton>
           <Button
-            size='sm'
-            bg='black'
+            bg='primary.500'
             color='white'
             px={6}
             borderRadius='full'
-            onClick={openModal}
+            _hover={{ bg: 'primary.600' }}
           >
             Post
           </Button>
         </HStack>
-      </Flex>
+      </HStack>
     </Box>
   );
 }

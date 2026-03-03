@@ -18,17 +18,18 @@ export const CommunityHero = () => {
     >
       <Stack textAlign='center' gap={5} align='center' py='50px'>
         <Heading size={{ base: '2xl', md: '4xl' }} lineHeight='1.2'>
-          The community for <br /> those who travel boldly
+          A Global Pulse for <br /> Modern Explorers
         </Heading>
 
         <Text fontSize={{ base: 'md', md: 'lg' }} opacity={0.9}>
-          Where people who take adventure seriously come to <br /> learn,
-          connect, and travel smarter.
+          Curated by <strong>Abdulazeez Muritador</strong>, Roamify is where
+          independent <br /> spirits unite to exchange raw stories and travel
+          smarter.
         </Text>
 
         <Button asChild bg='secondary' color='dark'>
           <AppLink href='/posts'>
-            Join the community
+            Enter the Circle
             <Icon as={ArrowRight} ml={2} />
           </AppLink>
         </Button>

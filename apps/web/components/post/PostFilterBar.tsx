@@ -8,6 +8,7 @@ import { SearchBar } from '../ui/search/Search';
 import { SelectInput } from '../ui/input/SelectInput';
 import { getCountryOptions } from '@/utils/Countries';
 import { useCommunityStore } from '@/store/use-community-store';
+import Button from '../ui/button/Button';
 
 interface FilterProps {
   posts: PostResponseDto[];
@@ -51,129 +52,43 @@ export function PostFilterBar({
   }, [searchQuery, selectedTitle, location, posts]);
 
   return (
-    <Box
+    <Flex
       w='full'
-      p={4}
-      bg='white'
-      borderRadius='xl'
-      borderWidth='1px'
-      borderColor='gray.100'
-      my={6}
+      p={2}
+      bg='rgba(255, 255, 255, 0.8)'
+      backdropFilter='blur(10px)'
+      borderRadius='full'
+      border='1px solid'
+      borderColor='white'
+      boxShadow='sm'
+      justify='space-between'
+      align='center'
     >
-      <Flex align={{ base: 'center', md: 'flex-end' }} justify='space-between'>
-        <HStack gap={6} display={{ base: 'none', md: 'flex' }}>
-          {/* Username Display */}
-          <Box flex={1}>
-            <Field.Root>
-              <Field.Label fontSize='xs' fontWeight='bold' mb={0}>
-                Username
-              </Field.Label>
-              <Text
-                display='flex'
-                alignItems='center'
-                gap={1}
-                fontSize='xs'
-                fontWeight='medium'
-                py={1}
-              >
-                <User size={14} /> {userName}
-              </Text>
-            </Field.Root>
-          </Box>
+      <HStack flex={1} px={4}>
+        <MapPin size={16} color='purple' />
+        <SelectInput
+          value={location}
+          placeholder='Location'
+          options={countryOptions}
+          onChange={setLocation}
+        />
+      </HStack>
 
-          {/* Location Filter with your Country List */}
-          <Box flex={1}>
-            <Field.Root>
-              <Field.Label
-                fontSize='xs'
-                fontWeight='bold'
-                display='flex'
-                alignItems='center'
-                gap={1}
-                mb={0}
-              >
-                Location
-              </Field.Label>
-              <HStack>
-                <MapPin size={14} />
-                <SelectInput
-                  value={location}
-                  onChange={setLocation}
-                  placeholder='All Locations'
-                  width='150px'
-                  options={countryOptions}
-                />
-              </HStack>
-            </Field.Root>
-          </Box>
+      <Separator orientation='vertical' h='20px' />
 
-          <Separator orientation='vertical' h='50px' />
+      <Box flex={1} px={4}>
+        <SearchBar placeholder='Search stories...' onSearch={setSearchQuery} />
+      </Box>
 
-          {/* Interest Filter */}
-          {/* Interest Filter */}
-          <Box flex={1}>
-            <Field.Root>
-              <Field.Label
-                fontSize='xs'
-                fontWeight='bold'
-                display='flex'
-                alignItems='center'
-                gap={1}
-                mb={0}
-              >
-                Interest
-              </Field.Label>
-              <HStack>
-                <Tag size={14} />
-                <SelectInput
-                  value={selectedTitle}
-                  onChange={setSelectedTitle}
-                  placeholder='All Interests'
-                  width='150px'
-                  options={Object.entries(TripTypeLabels).map(
-                    ([value, label]) => ({
-                      label,
-                      value,
-                    }),
-                  )}
-                />
-              </HStack>
-            </Field.Root>
-          </Box>
-        </HStack>
-
-        {/* Mobile Icons */}
-        <HStack gap={4} display={{ base: 'flex', md: 'none' }}>
-          <Box
-            p={2}
-            borderRadius='md'
-            bg={activeTab === 'about' ? 'primary' : 'transparent'}
-            color={activeTab === 'about' ? 'white' : 'gray.600'}
-            onClick={() => setActiveTab('about')}
-            cursor='pointer'
-          >
-            <Users size={28} />
-          </Box>
-          <Box
-            p={2}
-            borderRadius='md'
-            bg={activeTab === 'posts' ? 'primary' : 'transparent'}
-            color={activeTab === 'posts' ? 'white' : 'gray.600'}
-            onClick={() => setActiveTab('posts')}
-            cursor='pointer'
-          >
-            <SwatchBook size={28} />
-          </Box>
-        </HStack>
-        {/* Search Input */}
-        <Box>
-          <SearchBar
-            placeholder='Search stories...'
-            width={{ base: '130px', md: '200px' }}
-            onSearch={(val) => setSearchQuery(val)}
-          />
-        </Box>
-      </Flex>
-    </Box>
+      <Button
+        bg='primary.500'
+        color='white'
+        borderRadius='full'
+        px={8}
+        size='sm'
+      >
+        Filter
+      </Button>
+    </Flex>
   );
 }

@@ -24,22 +24,30 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: 'roamify',
-    template: '%s | roamify',
+    default: 'Roamify | Authentic Adventures for Young Travelers',
+    template: '%s | Roamify',
   },
   description:
-    'Making adventure tourism safe for young travelers 18-35 again. Find and book thrilling trips vetted against our safety standards. ',
-  keywords: ['travel', 'tours', 'your other keywords'],
+    'Redefining adventure for the next generation. Roamify connects travelers aged 18-35 with safe, vetted, and unforgettable global tours. Explore the world with confidence.',
+  keywords: [
+    'young adult travel',
+    'adventure tours',
+    'safe group travel',
+    'budget expeditions',
+    'vetted tour operators',
+    '18-35 travel deals',
+  ],
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
   },
   openGraph: {
-    title: 'roamify',
-    description: 'Your custom description here.',
+    title: 'Roamify - Explore Boldly, Travel Safely',
+    description:
+      'Join the community of young explorers. Hand-picked adventures designed for ages 18-35 with safety at the forefront.',
     url: 'https://roamify.com',
-    siteName: 'roamify',
+    siteName: 'Roamify',
     type: 'website',
   },
 };

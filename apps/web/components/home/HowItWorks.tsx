@@ -12,58 +12,56 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { AvatarImage } from '../media/AvatarImage';
-import { BookAIcon, FileExclamationPointIcon, Rocket } from 'lucide-react';
-
+import { Compass, Map, Users } from 'lucide-react';
 import { ResponsiveImage } from '../media/ResponsiveImage';
 import { FeatureCard } from '../ui/card/FeatureCard';
 
-//advisor-images
-const advisors = [
+// Updated advisors with generic images
+const travelers = [
   {
-    id: 'hero-advisor-1',
-    src: '/images/home/home-hero-advisor-1.webp',
-    name: 'Belly',
+    id: 'traveler-1',
+    src: '/images/avatars/traveler-1.webp',
+    name: 'Alex',
   },
   {
-    id: 'hero-advisor-2',
-    src: '/images/home/home-hero-advisor-2.webp',
-    name: 'Brand',
+    id: 'traveler-2',
+    src: '/images/avatars/traveler-2.webp',
+    name: 'Jamie',
   },
   {
-    id: 'hero-advisor-3',
-    src: '/images/home/home-hero-advisor-3.webp',
-    name: 'Brook',
+    id: 'traveler-3',
+    src: '/images/avatars/traveler-3.webp',
+    name: 'Taylor',
   },
 ];
 
-//Card-data
+// Updated card data
 const cardData = [
   {
-    heading: 'Select Your Adventure',
-    icon: BookAIcon,
+    heading: 'Discover Unique Adventures',
+    icon: Compass,
     description:
-      'Every trip on Zago is approved through our Quality and Safety Standard. If it is here, it has earned its place.',
+      'Browse through hand-picked experiences from hidden trails to cultural immersions. Every adventure is vetted for quality.',
   },
   {
-    heading: 'Know What to Expect',
-    icon: FileExclamationPointIcon,
+    heading: 'Plan Your Journey',
+    icon: Map,
     description:
-      'From the guides to the routes to the conditions on the ground. Clear information, no guesswork, no surprises.',
+      'Get detailed insights about routes, guides, and conditions. Know exactly what to expect before you go.',
   },
   {
-    heading: 'Go',
-    icon: Rocket,
+    heading: 'Join the Community',
+    icon: Users,
     description:
-      'You bring the courage. We bring protection. It is that simple.',
+      'Connect with fellow travelers, share experiences, and embark on adventures together.',
   },
 ];
 
-//ResponsiveImage-Data
 const resImageData = [
-  '/images/adventures/tripType/skiing.webp',
-  '/images/adventures/tripType/hiking.webp',
-  '/images/adventures/tripType/mountain-climbing.webp',
-  '/images/adventures/tripType/safari.webp',
+  '/images/adventures/tripType/trekking.webp',
+  '/images/adventures/tripType/camping.webp',
+  '/images/adventures/tripType/kayaking.webp',
+  '/images/adventures/tripType/wildlife.webp',
 ];
 
 export const HowItWorks = () => {
@@ -90,14 +88,14 @@ export const HowItWorks = () => {
               px={4}
               py={1}
               borderWidth='1px'
-              borderColor='primary'
+              borderColor='secondary'
               borderRadius='full'
               letterSpacing='widest'
               bg='white'
-              color='primary'
+              color='secondary'
               fontWeight='semibold'
             >
-              JUST BREAKS, NO PLANS
+              YOUR JOURNEY, YOUR WAY
             </Text>
           </Center>
 
@@ -106,7 +104,7 @@ export const HowItWorks = () => {
             color='primary'
             fontWeight='bolder'
           >
-            How It Works
+            Start Your Adventure in 3 Simple Steps
           </Heading>
 
           <Text
@@ -114,7 +112,8 @@ export const HowItWorks = () => {
             opacity={0.9}
             maxW={{ base: '100%', md: '600px' }}
           >
-            Wherever you are in the world, pick your adventure, it's that SIMPLE
+            From discovery to departure - we make it easy to find and plan your
+            next adventure
           </Text>
         </Stack>
 
@@ -127,7 +126,6 @@ export const HowItWorks = () => {
           maxW='1100px'
           mx='auto'
         >
-          {/* Images Grid */}
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={4} flex='1.2'>
             {resImageData.map((img, i) => (
               <Box
@@ -153,7 +151,6 @@ export const HowItWorks = () => {
             ))}
           </SimpleGrid>
 
-          {/* Feature Cards List */}
           <Stack gap={6} flex='1' textAlign='left' width='full'>
             {cardData.map((card, idx) => (
               <FeatureCard
@@ -174,37 +171,40 @@ export const HowItWorks = () => {
         left='50%'
         transform='translate(-50%, 50%)'
         zIndex={10}
-        bg='primary'
+        bg='secondary'
         p={{ base: 6, md: 10 }}
         borderRadius='2xl'
         boxShadow='2xl'
-        color='white'
+        color='dark'
       >
         <Stack align='center' gap={6} textAlign='center'>
           <AvatarGroup spaceX='-3'>
-            {advisors.map((adv, idx) => (
+            {travelers.map((traveler, idx) => (
               <Box
                 as='span'
                 key={idx}
                 borderWidth='2px'
-                borderColor='primary'
+                borderColor='secondary'
                 borderRadius='full'
               >
-                <AvatarImage src={adv.src} name={adv.name} id={adv.id} />
+                <AvatarImage
+                  src={traveler.src}
+                  name={traveler.name}
+                  id={traveler.id}
+                />
               </Box>
             ))}
-            <Avatar.Root id='hero-advisor-more' bg='white' color='primary'>
-              <Avatar.Fallback fontSize='xs'>+</Avatar.Fallback>
+            <Avatar.Root id='traveler-more' bg='primary' color='white'>
+              <Avatar.Fallback fontSize='xs'>2k+</Avatar.Fallback>
             </Avatar.Root>
           </AvatarGroup>
           <Text
             fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
             lineHeight='short'
+            fontWeight='medium'
           >
-            Our team and partners aren’t new to this, we’ve spent decades
-            leading travelers up mountains, across oceans, and into the kind of
-            stories you never forget. Together, that’s over 100 years of
-            experience fueling your next adventure.
+            Join thousands of travelers discovering their next adventure with
+            Roamify. Your journey starts here.
           </Text>
         </Stack>
       </Box>

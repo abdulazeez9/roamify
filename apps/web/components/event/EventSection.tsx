@@ -4,48 +4,45 @@ import {
   Container,
   Flex,
   Heading,
-  HStack,
   SimpleGrid,
   VStack,
   Text,
   Center,
+  Badge,
+  Tabs,
 } from '@chakra-ui/react';
-import { EventResponseDto } from '@roamify/types';
-import React, { useMemo, useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { Calendar } from 'lucide-react';
 import { EventCard } from '../ui/card/EventCard';
+import { EventCardSkeleton } from '../ui/card/Eventcardskeleton';
 import { SelectInput } from '../ui/input/SelectInput';
 import { useEvents } from '@/hooks';
 import { ErrorState } from '../ui/ErrorState';
-import { EventCardSkeleton } from '../ui/card/Eventcardskeleton';
+import { SearchBar } from '../ui/search/Search';
 
 export default function EventSection() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
 
-  const sectionWidth = { base: 'full', lg: '900px' };
   const { data, isLoading, isError, error } = useEvents();
 
   // Generate unique locations from events data
   const uniqueLocations = useMemo(() => {
-    if (!data?.data) return [{ label: 'All Locations', value: '' }];
+    if (!data?.data) return [];
 
     const validLocations: string[] = [];
-    data.data.forEach((event: EventResponseDto) => {
+    data.data.forEach((event: any) => {
       if (event.location && typeof event.location === 'string') {
         validLocations.push(event.location);
       }
     });
 
     const uniqueLocs = [...new Set(validLocations)];
-
-    return [
-      { label: 'All Locations', value: '' },
-      ...uniqueLocs.map((loc) => ({
-        label: loc,
-        value: loc,
-      })),
-    ];
+    return uniqueLocs.map((loc) => ({
+      label: loc,
+      value: loc,
+    }));
   }, [data]);
 
   // Date range options
@@ -62,7 +59,7 @@ export default function EventSection() {
     }
 
     const now = new Date();
-    let events: EventResponseDto[] = data.data;
+    let events: any[] = data.data;
 
     // Apply filters
     events = events.filter((event) => {
@@ -115,169 +112,169 @@ export default function EventSection() {
     const upcoming = events.filter((event) => new Date(event.date) >= now);
     const past = events.filter((event) => new Date(event.date) < now);
 
+    // Sort by date
+    upcoming.sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    );
+    past.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    ); // Most recent past first
+
     return { upcomingEvents: upcoming, pastEvents: past };
   }, [data, searchQuery, selectedLocation, selectedDate]);
 
   if (isError) return <ErrorState message={error?.message} />;
 
   return (
-    <Container
-      id='join-event-section'
-      scrollMarginTop='100px'
-      maxW='container.xl'
-      py={10}
-    >
-      <VStack spaceY={12} align='stretch'>
-        {/* --- UPCOMING EVENTS SECTION --- */}
-        <Box>
-          <Flex
-            justify='space-between'
-            align='center'
-            width={sectionWidth}
-            mx='auto'
-            mb={6}
-          >
-            <Heading
-              size={{ base: 'xl', md: '2xl' }}
-              lineHeight='1.2'
-              color='primary'
-              fontWeight='bold'
-            >
-              Upcoming Events
+    <Box id='events-section' py={16} bg='white'>
+      <Container maxW='1200px'>
+        <VStack gap={8} align='stretch'>
+          {/* Header */}
+          <VStack gap={2} textAlign='center'>
+            <Heading size='2xl' color='gray.800'>
+              Discover Events
             </Heading>
+            <Text fontSize='lg' color='gray.600'>
+              Find the perfect event for your interests and schedule
+            </Text>
+          </VStack>
 
-            <HStack display={{ base: 'none', md: 'flex' }} spaceX={4}>
+          {/* Search and Filters */}
+          <Flex
+            direction={{ base: 'column', md: 'row' }}
+            gap={4}
+            bg='gray.50'
+            p={6}
+            borderRadius='xl'
+            align='center'
+          >
+            S
+            <Box flex={2}>
+              <SearchBar
+                placeholder='Search events...'
+                value={searchQuery}
+                onSearch={setSearchQuery}
+                bg='white'
+                width='100%'
+              />
+            </Box>
+            <Box flex={1}>
               <SelectInput
                 value={selectedLocation}
-                onChange={(value) => setSelectedLocation(value)}
-                placeholder='Location'
+                onChange={setSelectedLocation}
                 options={uniqueLocations}
+                placeholder='All Locations'
+                width='100%'
               />
+            </Box>
+            <Box flex={1}>
               <SelectInput
                 value={selectedDate}
-                onChange={(value) => setSelectedDate(value)}
-                placeholder='Date Range'
+                onChange={setSelectedDate}
                 options={dateOptions}
+                placeholder='Date Range'
+                width='100%'
               />
-            </HStack>
+            </Box>
           </Flex>
 
-          {/* Loading State for Upcoming Events */}
-          {isLoading && (
-            <SimpleGrid
-              columns={{ base: 1, md: 3 }}
-              gap={6}
-              width={sectionWidth}
-              mx='auto'
-            >
-              {Array.from({ length: 3 }).map((_, idx) => (
-                <EventCardSkeleton key={idx} />
-              ))}
-            </SimpleGrid>
-          )}
-
-          {/* Empty State for Upcoming Events */}
-          {!isLoading && upcomingEvents.length === 0 && (
-            <Center width={sectionWidth} mx='auto' py={10}>
-              <Text color='gray.500' fontSize='lg'>
-                {searchQuery || selectedLocation || selectedDate
-                  ? 'No upcoming events match your search'
-                  : 'No upcoming events at the moment'}
+          {/* Active Filters */}
+          {(searchQuery || selectedLocation || selectedDate) && (
+            <Flex gap={2} flexWrap='wrap'>
+              <Text color='gray.600' mr={2}>
+                Active filters:
               </Text>
-            </Center>
+              {searchQuery && (
+                <Badge colorScheme='blue' px={3} py={1} borderRadius='full'>
+                  Search: {searchQuery}
+                </Badge>
+              )}
+              {selectedLocation && (
+                <Badge colorScheme='green' px={3} py={1} borderRadius='full'>
+                  Location: {selectedLocation}
+                </Badge>
+              )}
+              {selectedDate && (
+                <Badge colorScheme='purple' px={3} py={1} borderRadius='full'>
+                  Date:{' '}
+                  {dateOptions.find((d) => d.value === selectedDate)?.label}
+                </Badge>
+              )}
+            </Flex>
           )}
 
-          {/* Upcoming Events Grid */}
-          {!isLoading && upcomingEvents.length > 0 && (
-            <SimpleGrid
-              columns={{ base: 1, md: 3 }}
-              gap={{ base: 6, md: 5 }}
-              rowGap={{ base: 6, md: 5 }}
-              mx='auto'
-              width={sectionWidth}
+          {/* Events Tabs */}
+          <Box>
+            <Tabs.Root
+              defaultValue='upcoming'
+              variant='enclosed'
+              colorScheme='blue'
             >
-              {upcomingEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
-            </SimpleGrid>
-          )}
-        </Box>
+              <Tabs.List mb={6}>
+                <Tabs.Trigger value='upcoming'>
+                  Upcoming Events ({upcomingEvents.length})
+                </Tabs.Trigger>
+                <Tabs.Trigger value='past'>
+                  Past Events ({pastEvents.length})
+                </Tabs.Trigger>
+              </Tabs.List>
 
-        {/* --- PAST EVENTS SECTION --- */}
-        <Box>
-          <Flex
-            justify='space-between'
-            align='center'
-            width={sectionWidth}
-            mx='auto'
-            mb={6}
-          >
-            <Heading
-              size={{ base: 'xl', md: '2xl' }}
-              lineHeight='1.2'
-              color='primary'
-              fontWeight='bold'
-            >
-              Past Events
-            </Heading>
+              <Tabs.Content value='upcoming'>
+                {isLoading ? (
+                  <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+                    {[1, 2, 3].map((i) => (
+                      <EventCardSkeleton key={i} />
+                    ))}
+                  </SimpleGrid>
+                ) : upcomingEvents.length > 0 ? (
+                  <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+                    {upcomingEvents.map((event) => (
+                      <EventCard key={event.id} event={event} />
+                    ))}
+                  </SimpleGrid>
+                ) : (
+                  <Center py={12}>
+                    <VStack gap={2}>
+                      <Calendar size={48} color='#CBD5E0' />
+                      <Text color='gray.500' fontSize='lg'>
+                        No upcoming events match your criteria
+                      </Text>
+                      <Text color='gray.400'>
+                        Try adjusting your filters or check back later
+                      </Text>
+                    </VStack>
+                  </Center>
+                )}
+              </Tabs.Content>
 
-            <HStack display={{ base: 'none', md: 'flex' }} spaceX={4}>
-              <SelectInput
-                value={selectedLocation}
-                onChange={(value) => setSelectedLocation(value)}
-                placeholder='Location'
-                options={uniqueLocations}
-              />
-              <SelectInput
-                value={selectedDate}
-                onChange={(value) => setSelectedDate(value)}
-                placeholder='Date Range'
-                options={dateOptions}
-              />
-            </HStack>
-          </Flex>
-
-          {/* Loading State for Past Events */}
-          {isLoading && (
-            <SimpleGrid
-              columns={{ base: 1, md: 3 }}
-              gap={6}
-              width={sectionWidth}
-              mx='auto'
-            >
-              {Array.from({ length: 3 }).map((_, idx) => (
-                <EventCardSkeleton key={idx} />
-              ))}
-            </SimpleGrid>
-          )}
-
-          {/* Empty State for Past Events */}
-          {!isLoading && pastEvents.length === 0 && (
-            <Center width={sectionWidth} mx='auto' py={10}>
-              <Text color='gray.500' fontSize='lg'>
-                {searchQuery || selectedLocation || selectedDate
-                  ? 'No past events match your search'
-                  : 'No past events to display'}
-              </Text>
-            </Center>
-          )}
-
-          {/* Past Events Grid */}
-          {!isLoading && pastEvents.length > 0 && (
-            <SimpleGrid
-              columns={{ base: 1, md: 3 }}
-              gap={6}
-              width={sectionWidth}
-              mx='auto'
-              justifyItems='center'
-            >
-              {pastEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
-            </SimpleGrid>
-          )}
-        </Box>
-      </VStack>
-    </Container>
+              <Tabs.Content value='past'>
+                {isLoading ? (
+                  <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+                    {[1, 2, 3].map((i) => (
+                      <EventCardSkeleton key={i} />
+                    ))}
+                  </SimpleGrid>
+                ) : pastEvents.length > 0 ? (
+                  <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+                    {pastEvents.map((event) => (
+                      <EventCard key={event.id} event={event} />
+                    ))}
+                  </SimpleGrid>
+                ) : (
+                  <Center py={12}>
+                    <VStack gap={2}>
+                      <Calendar size={48} color='#CBD5E0' />
+                      <Text color='gray.500' fontSize='lg'>
+                        No past events match your criteria
+                      </Text>
+                    </VStack>
+                  </Center>
+                )}
+              </Tabs.Content>
+            </Tabs.Root>
+          </Box>
+        </VStack>
+      </Container>
+    </Box>
   );
 }

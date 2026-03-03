@@ -12,7 +12,8 @@ export const DesktopNav = () => {
 
   return (
     <Box
-      bg='textInverse'
+      bg='primary'
+      color='white'
       px={8}
       py={4}
       borderBottom='1px solid'

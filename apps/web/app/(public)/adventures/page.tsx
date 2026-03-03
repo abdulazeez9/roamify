@@ -1,11 +1,9 @@
 'use client';
 
 import { AdventureHero } from '@/components/adventure/AdventureHero';
-import FormSection from '@/components/adventure/FormSection';
 import TripTypeSection from '@/components/adventure/TripTypeSection';
 import VerifiedAdventureSection from '@/components/adventure/VerifiedAdventureSection';
-import { ResponsiveImage } from '@/components/media/ResponsiveImage';
-import { Stack, Box } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 export default function Adventures() {
@@ -24,14 +22,11 @@ export default function Adventures() {
         onDateChange={setSelectedDate}
       />
       <TripTypeSection />
-
       <VerifiedAdventureSection
         searchQuery={searchQuery}
         selectedDestination={selectedDestination}
         selectedDate={selectedDate}
       />
-
-      <FormSection />
     </Stack>
   );
 }

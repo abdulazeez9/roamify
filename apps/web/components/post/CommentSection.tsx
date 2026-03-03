@@ -17,28 +17,37 @@ const CommentItem = ({
   time: string;
   image?: string;
 }) => (
-  <Flex gap={3} w='full'>
-    <AvatarImage size='xs' name={name} src={image || ''} />
-    <VStack align='flex-start' spaceX={0.5} flex={1}>
-      <Box bg='gray.100' p={3} borderRadius='2xl' borderTopLeftRadius='none'>
-        <Text fontSize='xs' fontWeight='bold' color='gray.800'>
+  <Flex gap={4} w='full'>
+    <AvatarImage size='sm' name={name} src={image} />
+    <VStack align='flex-start' gap={0} flex={1}>
+      <Flex justify='space-between' w='full'>
+        <Text fontSize='sm' fontWeight='bold' color='gray.900'>
           {name}
         </Text>
-        <Text fontSize='sm' color='gray.700'>
-          {content}
+        <Text fontSize='xs' color='gray.400'>
+          {time}
         </Text>
-      </Box>
-      <HStack
-        fontSize='xs'
-        fontWeight='bold'
-        color='gray.500'
-        spaceX={4}
-        pl={2}
-      >
-        {/* <Text cursor='pointer' _hover={{ color: 'primary.600' }}>
+      </Flex>
+      <Text fontSize='sm' color='gray.600' mt={1}>
+        {content}
+      </Text>
+      <HStack gap={4} mt={2}>
+        <Text
+          fontSize='xs'
+          fontWeight='semibold'
+          color='primary.500'
+          cursor='pointer'
+        >
+          Like
+        </Text>
+        <Text
+          fontSize='xs'
+          fontWeight='semibold'
+          color='gray.400'
+          cursor='pointer'
+        >
           Reply
-        </Text> */}
-        <Text fontWeight='normal'>{time}</Text>
+        </Text>
       </HStack>
     </VStack>
   </Flex>

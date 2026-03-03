@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {
   Container,
@@ -32,160 +33,110 @@ const TermsAndConditions = () => {
         {/* SECTION 1: TERMS & CONDITIONS */}
         <Box>
           <Heading as='h1' size='3xl' mb={2}>
-            Terms & Conditions
+            Service Terms
           </Heading>
           <Text fontWeight='bold' color='gray.600'>
-            Zago Tours Ltd
+            Roamify Adventures Ltd
           </Text>
           <Text fontSize='sm' color='gray.500' mb={6}>
-            Effective Date: 01/01/2026
+            Effective Date: March 03, 2026
           </Text>
 
           <Box
-            bg='gray.50'
+            bg='blue.50'
             p={5}
             borderRadius='md'
             mb={8}
             border='1px solid'
-            borderColor='gray.100'
+            borderColor='blue.100'
           >
-            <Heading as='h4' size='xs' mb={2} textTransform='uppercase'>
-              Preamble
+            <Heading
+              as='h4'
+              size='xs'
+              mb={2}
+              textTransform='uppercase'
+              color='blue.800'
+            >
+              The Roamify Agreement
             </Heading>
-            <Text {...bodyTextStyle} fontSize='sm'>
-              These Terms govern your use of Zago Tours’ platform and services.
-              By booking or using our services, you agree to comply with them.
+            <Text {...bodyTextStyle} fontSize='sm' color='blue.900'>
+              These Terms govern your access to the Roamify ecosystem. By using
+              our platform or booking an adventure, you agree to these legal
+              standards designed to keep our community safe and vibrant.
             </Text>
           </Box>
 
           <Stack gap={8}>
             <Box>
-              <Heading {...sectionHeaderProps}>1. Introduction</Heading>
+              <Heading {...sectionHeaderProps}>1. Our Role</Heading>
               <Text {...bodyTextStyle}>
-                Zago Tours Ltd (“Zago”, “we”, “our”) is a UK-registered
-                adventure travel marketplace connecting verified suppliers with
-                travelers globally.
+                Roamify Adventures Ltd (“Roamify”, “we”) acts as a curated
+                marketplace connecting independent travelers with verified
+                global tour operators. We facilitate the connection; the
+                contract for service delivery exists between you and the
+                supplier.
               </Text>
             </Box>
 
             <Box>
-              <Heading {...sectionHeaderProps}>2. Safety Guarantee</Heading>
-              <List.Root gap={2} {...bodyTextStyle} variant='marker'>
-                <List.Item>
-                  We guarantee safety under our QSS Framework (Quality, Safety,
-                  Sustainability).
-                </List.Item>
-                <List.Item>
-                  Trips may be rescheduled, rerouted, or extended for safety
-                  reasons.
-                </List.Item>
-                <List.Item>
-                  Travelers must follow instructions, disclose health info, and
-                  report hazards.
-                </List.Item>
-              </List.Root>
-            </Box>
-
-            <Box>
-              <Heading {...sectionHeaderProps}>3. Booking & Payment</Heading>
-              <List.Root gap={2} {...bodyTextStyle} variant='marker'>
-                <List.Item>
-                  Deposits secure bookings; balance due 20 days before
-                  departure.
-                </List.Item>
-                <List.Item>
-                  Flights and hotels are on-demand; Zago is not liable for
-                  third-party issues.
-                </List.Item>
-                <List.Item>
-                  Payments processed securely via third-party providers.
-                </List.Item>
-              </List.Root>
-            </Box>
-
-            <Box>
               <Heading {...sectionHeaderProps}>
-                4. Cancellation & Refunds
+                2. Roamify Secure™ Protocol
               </Heading>
               <List.Root gap={2} {...bodyTextStyle} variant='marker'>
                 <List.Item>
-                  Deposits refundable if canceled within 7–10 days of booking.
+                  All trips must adhere to our Roamify Secure™ safety and
+                  sustainability standards.
                 </List.Item>
                 <List.Item>
-                  Refunds available if canceled 20 days before departure, except
-                  safety-rescheduled trips.
+                  We reserve the right to reroute or alter itineraries if
+                  real-time safety assessments indicate risk.
                 </List.Item>
                 <List.Item>
-                  Optional flexible cancellation add-on may extend refund
-                  eligibility.
+                  Travelers are required to provide honest health disclosures to
+                  ensure group safety.
                 </List.Item>
               </List.Root>
             </Box>
 
             <Box>
-              <Heading {...sectionHeaderProps}>
-                5. Traveler Responsibilities
-              </Heading>
-              <List.Root gap={1} {...bodyTextStyle} variant='marker'>
-                <List.Item>Accurate health and fitness disclosure</List.Item>
-                <List.Item>Follow supplier safety instructions</List.Item>
-                <List.Item>Report hazards promptly</List.Item>
-              </List.Root>
-            </Box>
-
-            <Box>
-              <Heading {...sectionHeaderProps}>
-                6. Supplier Responsibilities
-              </Heading>
-              <List.Root gap={1} {...bodyTextStyle} variant='marker'>
-                <List.Item>Follow QSS Framework</List.Item>
+              <Heading {...sectionHeaderProps}>3. Booking & Finance</Heading>
+              <List.Root gap={2} {...bodyTextStyle} variant='marker'>
                 <List.Item>
-                  Conduct safety assessments and pre-trip briefings
+                  A deposit is required to lock in your spot; the final balance
+                  must be settled 20 days prior to departure.
                 </List.Item>
                 <List.Item>
-                  Immediate response to emergencies and notify Zago within 12
-                  hours
+                  Roamify is not liable for changes or cancellations in
+                  third-party flight or hotel bookings.
+                </List.Item>
+                <List.Item>
+                  All transactions are handled through PCI-compliant encryption
+                  services.
                 </List.Item>
               </List.Root>
             </Box>
 
             <Box>
-              <Heading {...sectionHeaderProps}>7. Liability</Heading>
-              <Text {...bodyTextStyle}>
-                Adventure travel involves inherent risks. Zago and suppliers
-                manage safety but cannot control natural/unforeseeable events.
-                Not liable for third-party flights or hotels.
-              </Text>
+              <Heading {...sectionHeaderProps}>4. Cancellations</Heading>
+              <List.Root gap={2} {...bodyTextStyle} variant='marker'>
+                <List.Item>
+                  "Change of Heart" Grace Period: Deposits are fully refundable
+                  within 7 days of booking.
+                </List.Item>
+                <List.Item>
+                  Standard Window: Full refunds (less deposit) are available up
+                  to 20 days before departure.
+                </List.Item>
+              </List.Root>
             </Box>
 
             <Box>
-              <Heading {...sectionHeaderProps}>
-                8. Intellectual Property
-              </Heading>
+              <Heading {...sectionHeaderProps}>5. Liability & Risk</Heading>
               <Text {...bodyTextStyle}>
-                Content belongs to Zago or licensed partners. No unauthorized
-                reproduction.
-              </Text>
-            </Box>
-
-            <Box>
-              <Heading {...sectionHeaderProps}>
-                9. Governing Law & Emergency
-              </Heading>
-              <Text {...bodyTextStyle}>
-                UK law applies for UK travelers; other jurisdictions may apply
-                internationally.
-              </Text>
-              <Text {...bodyTextStyle} mt={2} fontWeight='bold'>
-                Emergency: contact supplier first, then Zago (
-                <Link
-                  color='blue.600'
-                  textDecoration='underline'
-                  href='mailto:partnerships@roamify.com'
-                >
-                  partnerships@roamify.com
-                </Link>
-                ).
+                Adventure travel has inherent risks. While Roamify vets every
+                partner, we cannot be held liable for natural events or
+                unforeseeable external circumstances. Private travel insurance
+                is mandatory for all participants.
               </Text>
             </Box>
           </Stack>
@@ -193,45 +144,25 @@ const TermsAndConditions = () => {
 
         <Separator borderColor='gray.200' />
 
-        {/* SECTION 2: CANCELLATION & REFUND POLICY */}
+        {/* SECTION 2: REFUND POLICY */}
         <Box>
           <Heading as='h2' size='2xl' mb={2}>
-            Cancellation & Refund Policy
+            Refund Standards
           </Heading>
-          <Text fontSize='sm' color='gray.500' mb={6}>
-            Effective Date: 01/01/2026
-          </Text>
-
-          <Stack gap={6}>
+          <Stack gap={6} mt={4}>
             <Box>
-              <Heading {...sectionHeaderProps}>1. General Principles</Heading>
+              <Heading {...sectionHeaderProps}>1. Eligibility</Heading>
               <Text {...bodyTextStyle}>
-                Zago guarantees safety; trips may be delayed or rerouted for
-                safety.
+                Refunds are processed to the original payment method. Trips
+                rescheduled due to safety protocols are typically offered as
+                credit unless otherwise stated.
               </Text>
             </Box>
             <Box>
-              <Heading {...sectionHeaderProps}>2. Deposits</Heading>
-              <Text {...bodyTextStyle}>
-                Required to secure bookings. Refundable within 7–10 days of
-                booking.
-              </Text>
-            </Box>
-            <Box>
-              <Heading {...sectionHeaderProps}>3. Refund Eligibility</Heading>
-              <Text {...bodyTextStyle}>
-                Full refunds if canceled 20 days before departure. Partial or no
-                refunds after 20 days unless covered by insurance or safety
-                rescheduling.
-              </Text>
-            </Box>
-            <Box>
-              <Heading {...sectionHeaderProps}>
-                6. Insurance Recommendation
-              </Heading>
+              <Heading {...sectionHeaderProps}>2. Insurance Notice</Heading>
               <Text {...bodyTextStyle} fontStyle='italic'>
-                Travelers are strongly encouraged to obtain insurance covering
-                medical emergencies, cancellations, and adventure activities.
+                Roamify strongly advises all travelers to secure comprehensive
+                adventure-grade insurance.
               </Text>
             </Box>
           </Stack>
@@ -239,51 +170,23 @@ const TermsAndConditions = () => {
 
         <Separator borderColor='gray.200' />
 
-        {/* SECTION 3: TRAVELLER RIGHTS */}
+        {/* SECTION 3: CONTACT */}
         <Box>
-          <Heading as='h2' size='2xl' mb={2}>
-            Traveller Rights (UK & Non-UK)
+          <Heading as='h2' size='2xl' mb={4}>
+            Support & Legal
           </Heading>
-          <Text fontSize='sm' color='gray.500' mb={6}>
-            Effective Date: 01/01/2026
+          <Text {...bodyTextStyle} mb={4}>
+            If you have questions regarding your rights under UK Package Travel
+            Regulations or local laws, contact our legal desk:
           </Text>
-
-          <Stack gap={6}>
-            <Box>
-              <Heading {...sectionHeaderProps}>4. Cancellation Rights</Heading>
-              <List.Root gap={2} {...bodyTextStyle} variant='marker'>
-                <List.Item>
-                  <strong>UK travelers:</strong> Rights under Package Travel
-                  Regulations 2018.
-                </List.Item>
-                <List.Item>
-                  <strong>Non-UK travelers:</strong> Rights under EU Package
-                  Travel Directive 2015/2302 or local law.
-                </List.Item>
-              </List.Root>
-            </Box>
-            <Box>
-              <Heading {...sectionHeaderProps}>
-                6. Insolvency / Financial Protection
-              </Heading>
-              <Text {...bodyTextStyle}>
-                Zago is a member of ATTA/ABTA. Since flights and hotels are
-                on-demand, ABTA/ATOL bonding does not apply. Travelers are
-                advised to obtain private travel insurance.
-              </Text>
-            </Box>
-            <Box>
-              <Heading {...sectionHeaderProps}>8. Contact</Heading>
-              <Link
-                color='blue.600'
-                fontWeight='bold'
-                textDecoration='underline'
-                href='mailto:partnerships@roamify.com'
-              >
-                partnerships@roamify.com
-              </Link>
-            </Box>
-          </Stack>
+          <Link
+            color='blue.600'
+            fontWeight='bold'
+            textDecoration='underline'
+            href='mailto:hello@roamify.com'
+          >
+            hello@roamify.com
+          </Link>
         </Box>
       </VStack>
     </Container>

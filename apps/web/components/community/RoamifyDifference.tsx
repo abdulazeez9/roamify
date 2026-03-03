@@ -1,33 +1,32 @@
 'use client';
-
 import { Box, Flex, Heading, Stack } from '@chakra-ui/react';
-import { LifeBuoy, TreePalm, Wifi } from 'lucide-react';
+import { Users, ShieldCheck, Globe } from 'lucide-react';
 import React from 'react';
 import { FeatureCard } from '../ui/card/FeatureCard';
 import { ResponsiveImage } from '../media/ResponsiveImage';
 
 const cardInfo = [
   {
-    heading: 'Real Experiences',
-    icon: LifeBuoy,
+    heading: 'Unfiltered Insights',
+    icon: Globe,
     description:
-      'Stories from travelers and professionals with lived experience.',
+      'No fluff. Just honest advice from a community that has actually been there.',
   },
   {
-    heading: 'Shared Knowledge',
-    icon: TreePalm,
+    heading: 'Safety First Culture',
+    icon: ShieldCheck,
     description:
-      'Live sessions, discussions, and insights that help you make better travel decisions.',
+      'Access exclusive safety ratings and peer-vetted itineraries for total peace of mind.',
   },
   {
-    heading: 'Meaningful Connections',
-    icon: Wifi,
+    heading: 'The Global Network',
+    icon: Users,
     description:
-      'Meet people building adventure into their lives, not just their feed.',
+      'Connect with fellow roamers aged 18-35 to plan group trips or solo meetups.',
   },
 ];
 
-export default function BehindTheScenesSection() {
+export default function RoamifyDifference() {
   return (
     <Box
       bg='textPrimary'
@@ -40,29 +39,28 @@ export default function BehindTheScenesSection() {
       <Heading
         size={{ base: '2xl', md: '4xl' }}
         color='primary'
-        fontWeight='bold'
         textAlign='center'
         mb={{ base: 5, md: 16 }}
       >
-        What Happens Inside
+        Why Roam With Us?
       </Heading>
       <Flex
         direction={{ base: 'column', md: 'row' }}
         justify='center'
-        align={{ base: 'stretch', md: 'stretch' }}
-        gap={5}
+        align='stretch'
+        gap={10}
       >
         <Box
-          w={{ base: 'full', md: '300px' }}
-          h={{ base: '200px', md: 'auto' }}
+          w={{ base: 'full', md: '400px' }}
+          h={{ base: '250px', md: 'auto' }}
           position='relative'
         >
           <ResponsiveImage
-            src='/images/community/community-what-to-expect-1.webp'
-            alt='community image'
+            src='/images/community/roam-vibe.webp'
+            alt='Roamify Community'
           />
         </Box>
-        <Stack gap={6} flex='1' textAlign='left' maxW={{ lg: '500px' }}>
+        <Stack gap={8} flex='1' maxW={{ lg: '500px' }}>
           {cardInfo.map((card, idx) => (
             <FeatureCard
               key={idx}

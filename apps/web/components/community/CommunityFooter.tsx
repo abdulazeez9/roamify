@@ -1,44 +1,28 @@
 'use client';
-import { Box, Icon, Stack, Text } from '@chakra-ui/react';
+import { Icon, Stack, Text } from '@chakra-ui/react';
 import Button from '../ui/button/Button';
-import { ResponsiveImage } from '../media/ResponsiveImage';
 import { ArrowRight } from 'lucide-react';
 import { AppLink } from '../ui/link/AppLink';
 
 export default function CommunityFooter() {
   return (
-    <Stack spaceY={6} align='center' textAlign='center' px={4} py={16}>
-      <Text fontSize='lg' fontWeight='semibold'>
-        Adventure is not just a vacation. It’s a mindset.
+    <Stack gap={8} align='center' textAlign='center' px={4} py={20}>
+      <Text fontSize='2xl' fontWeight='bold'>
+        Don't just watch the world. Move through it.
       </Text>
 
-      <Text maxW='600px'>
-        If you care about how you travel, who you travel with, and what happens
-        after you arrive, you belong here.
+      <Text maxW='600px' color='gray.600'>
+        Roamify is built by travelers like <strong>Abdulazeez</strong> for
+        travelers like you. If you're ready to trade the "tourist" label for
+        "explorer," you're in the right place.
       </Text>
 
-      <Button asChild bg='primary' color='white'>
+      <Button asChild bg='primary' color='white' size='lg'>
         <AppLink href='/posts'>
-          Join the community
+          Get Started Now
           <Icon as={ArrowRight} ml={2} />
         </AppLink>
       </Button>
-
-      {/* Image container */}
-      <Box
-        w='full'
-        h={{ base: '220px', md: '320px' }}
-        position='relative'
-        borderRadius='lg'
-        overflow='hidden'
-      >
-        <ResponsiveImage
-          src='/images/community/community-post-banner.webp'
-          alt='community footer image'
-          loading='eager'
-          priority
-        />
-      </Box>
     </Stack>
   );
 }

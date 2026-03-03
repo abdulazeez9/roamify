@@ -1,18 +1,15 @@
-import BehindTheScenesSection from '@/components/community/BehindTheScenesSection';
-import CommunityFooter from '@/components/community/CommunityFooter';
+import { Box } from '@chakra-ui/react';
 import { CommunityHero } from '@/components/community/CommunityHero';
 import GettingStartedSection from '@/components/community/GettingStartedSection';
-import WhatToExpectSection from '@/components/community/WhatToExpectSection';
-import { Box } from '@chakra-ui/react';
-import React from 'react';
+import CommunityFooter from '@/components/community/CommunityFooter';
+import RoamifyDifference from '@/components/community/RoamifyDifference';
 
 export default function Community() {
   return (
     <Box>
       <CommunityHero />
-      <WhatToExpectSection />
+      <RoamifyDifference />
       <GettingStartedSection />
-      <BehindTheScenesSection />
       <CommunityFooter />
     </Box>
   );

@@ -15,7 +15,7 @@ import { ArrowRight } from 'lucide-react';
 import { useAuthSession } from '@/hooks';
 import { AppLink } from '../ui/link/AppLink';
 
-export const HomeHero = () => {
+export const HeroSection = () => {
   const { isAuthenticated } = useAuthSession();
 
   return (
@@ -44,35 +44,35 @@ export const HomeHero = () => {
             borderRadius='full'
             letterSpacing='widest'
           >
-            SAFE | SPONTANEOUS | SUSTAINABLE
+            ADVENTURE | DISCOVERY | FREEDOM
           </Text>
         </Center>
 
         <Heading
           size={{ base: '2xl', md: '4xl' }}
           lineHeight='1.2'
-          maxW={{ base: '100%', md: '400px' }}
+          maxW={{ base: '100%', md: '500px' }}
           overflowWrap='anywhere'
           wordBreak='break-word'
         >
-          Show Up Excited, Return Home Your Best Self.
+          Every Journey Tells a Story. Start Yours Today.
         </Heading>
 
         <Text
           fontSize={{ base: 'md', md: 'lg' }}
           opacity={0.9}
-          maxW={{ base: '100%', md: '400px' }}
+          maxW={{ base: '100%', md: '500px' }}
           overflowWrap='anywhere'
           wordBreak='break-word'
         >
-          You take adventure seriously. <br /> We take your safety even more
-          seriously.
+          Connect with travelers, discover hidden gems, and create memories that
+          last forever.
         </Text>
 
         {!isAuthenticated && (
           <AppLink href='/register'>
             <Button bg='secondary' color='dark' fontWeight='bold'>
-              Join Us
+              Join the Community
               <Icon as={ArrowRight} ml={2} />
             </Button>
           </AppLink>
@@ -90,8 +90,8 @@ export const HomeHero = () => {
       >
         <AspectRatio ratio={{ base: 21 / 9, md: 21 / 9 }}>
           <ResponsiveImage
-            src='/images/home/swipper/snowboarding.webp'
-            alt='our-story banner image'
+            src='/images/home/swipper/hiking-adventure.webp'
+            alt='hero adventure image'
             width='100%'
             priority={true}
             loading='eager'

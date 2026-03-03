@@ -9,10 +9,12 @@ import {
   Icon,
   Heading,
   Flex,
+  Badge,
+  Text,
 } from '@chakra-ui/react';
 import AdventureCard from '../ui/card/AdventureCard';
 import Button from '../ui/button/Button';
-import { Grip, Verified } from 'lucide-react';
+import { Compass, ShieldCheck } from 'lucide-react';
 import { useAdventures } from '@/hooks';
 import { PaginationControl } from '../ui/pagination/PaginationControl';
 import { AdventureCardSkeleton } from '../ui/card/Adventurecardskeleton';
@@ -40,10 +42,11 @@ export default function VerifiedAdventureSection({
 
   const adventures = response?.data || [];
   const pagination = response?.pagination;
+
   // Filter adventures based on search query and filters
   const filteredAdventures = useMemo(() => {
     return adventures.filter((adventure) => {
-      // Search query filter (searches in title, description, location, etc.)
+      // Search query filter
       const matchesSearch = searchQuery
         ? adventure.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
           adventure.description
@@ -52,14 +55,14 @@ export default function VerifiedAdventureSection({
           adventure.location?.toLowerCase().includes(searchQuery.toLowerCase())
         : true;
 
-      // Destination filter - matches against location field
+      // Destination filter
       const matchesDestination = selectedDestination
         ? adventure.location
             ?.toLowerCase()
             .includes(selectedDestination.toLowerCase())
         : true;
 
-      // Date filter - matches against the adventure.date field
+      // Date filter
       const matchesDate = selectedDate
         ? (() => {
             const adventureDate = new Date(adventure.date);
@@ -95,22 +98,45 @@ export default function VerifiedAdventureSection({
     });
   }, [adventures, searchQuery, selectedDestination, selectedDate]);
 
+  // Show active filters
+  const hasActiveFilters = searchQuery || selectedDestination || selectedDate;
+
   return (
-    <Container maxW='container.xl' mt={5}>
+    <Container maxW='container.xl' mt={5} mb={10}>
       {/* Header */}
-      <Flex align='center' justify='center' mb={6} gap={5}>
-        <Heading
-          size={{ base: '2xl', md: '4xl' }}
-          lineHeight='1.2'
-          fontWeight='bolder'
-          textAlign='center'
-          color='primary'
-        >
-          Verified Adventures
-        </Heading>
-        <Icon as={Verified} />
+      <Flex direction='column' align='center' justify='center' mb={8} gap={3}>
+        <Flex align='center' gap={3}>
+          <Icon as={ShieldCheck} color='secondary' boxSize={8} />
+          <Heading
+            size={{ base: '2xl', md: '3xl' }}
+            fontWeight='bolder'
+            textAlign='center'
+            color='primary'
+          >
+            Verified Adventures
+          </Heading>
+        </Flex>
+        <Text color='gray.600' maxW='600px' textAlign='center'>
+          Every experience is vetted for quality, safety, and authenticity
+        </Text>
+
+        {/* Active filters display */}
+        {hasActiveFilters && (
+          <Badge bg='secondary' color='dark' px={4} py={2} borderRadius='full'>
+            Filtering by:{' '}
+            {[
+              searchQuery && `"${searchQuery}"`,
+              selectedDestination,
+              selectedDate &&
+                dates.find((d) => d.value === selectedDate)?.label,
+            ]
+              .filter(Boolean)
+              .join(' • ')}
+          </Badge>
+        )}
       </Flex>
 
+      {/* Loading state */}
       {isLoading && (
         <SimpleGrid
           columns={{ base: 1, md: 3 }}
@@ -127,15 +153,22 @@ export default function VerifiedAdventureSection({
 
       {/* Empty state */}
       {!isLoading && filteredAdventures.length === 0 && (
-        <Box textAlign='center' py={10}>
-          <Heading size='md' color='gray.500'>
-            {searchQuery || selectedDestination || selectedDate
-              ? 'No adventures found matching your search'
+        <Box textAlign='center' py={16} bg='surface' borderRadius='2xl'>
+          <Icon as={Compass} boxSize={12} color='gray.400' mb={4} />
+          <Heading size='lg' color='gray.600' mb={2}>
+            {hasActiveFilters
+              ? 'No adventures match your search'
               : 'No adventures found yet!'}
           </Heading>
+          <Text color='gray.500'>
+            {hasActiveFilters
+              ? 'Try adjusting your filters or browse all adventures'
+              : 'Check back soon for new experiences'}
+          </Text>
         </Box>
       )}
 
+      {/* Adventures grid */}
       <SimpleGrid
         columns={{ base: 1, md: 3 }}
         rowGap={{ base: 6, md: 5 }}
@@ -150,25 +183,40 @@ export default function VerifiedAdventureSection({
         ))}
       </SimpleGrid>
 
-      {!showPagination && pagination && filteredAdventures.length > 0 && (
-        <Center mt={6}>
-          <Button
-            bg='dark'
-            color='white'
-            py='1'
-            pr='4'
-            onClick={() => setShowPagination(true)}
-          >
-            <Icon as={Grip} mr='4' boxSize='3' />
-            Load More Tours
-          </Button>
-        </Center>
-      )}
+      {/* Load more button */}
+      {!showPagination &&
+        pagination &&
+        filteredAdventures.length > 0 &&
+        pagination.totalPages > 1 && (
+          <Center mt={8}>
+            <Button
+              bg='primary'
+              color='white'
+              py='3'
+              px='6'
+              borderRadius='full'
+              _hover={{ bg: 'primary', opacity: 0.9 }}
+              onClick={() => setShowPagination(true)}
+            >
+              <Icon as={Compass} mr='2' boxSize='4' />
+              Load More Adventures
+            </Button>
+          </Center>
+        )}
 
       {/* Pagination */}
       {showPagination && pagination && (
-        <PaginationControl pagination={pagination} onPageChange={setPage} />
+        <Box mt={8}>
+          <PaginationControl pagination={pagination} onPageChange={setPage} />
+        </Box>
       )}
     </Container>
   );
 }
+
+// Helper for date labels
+const dates = [
+  { label: 'This Week', value: 'week' },
+  { label: 'This Month', value: 'month' },
+  { label: 'Next Month', value: 'next-month' },
+];

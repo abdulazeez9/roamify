@@ -9,37 +9,41 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import React from 'react';
-import { Globe, Ribbon, ShieldUser, Vegan } from 'lucide-react';
+import { Compass, Heart, Camera, Globe2 } from 'lucide-react';
 import { FeatureHighlightCard } from '../ui/card/FeatureHighlightCard';
 
 const cardData = [
   {
-    title: 'SAFE',
-    image: '/images/home/home-why-choose-sect-1.webp',
-    desc: 'With Zago tours, every option is verified before you even see it.',
-    rightIcon: ShieldUser,
+    title: 'DISCOVER',
+    image: '/images/home/discover-section.webp',
+    description:
+      'Find hidden gems and off-the-beaten-path destinations that most travelers never get to experience.',
+    rightIcon: Compass,
   },
   {
-    title: 'SPONTANEOUS',
-    image: '/images/home/home-why-choose-sect-2.webp',
-    desc: 'We know what it’s like to want out, right now. That’s why we built a system that lets you select and go, stress-free. We get the rush of wanting out right now',
-    rightIcon: Ribbon,
+    title: 'CONNECT',
+    image: '/images/home/connect-section.webp',
+    description:
+      'Meet like-minded adventurers, share stories, and build friendships that last a lifetime.',
+    rightIcon: Heart,
   },
   {
-    title: 'SUSTAINABLE',
-    image: '/images/home/home-why-choose-sect-3.webp',
-    desc: 'We make sure every detail meets our standard before it ever meets you. Only quality adventures, only trusted operators.',
-    rightIcon: Vegan,
+    title: 'EXPLORE',
+    image: '/images/home/explore-section.webp',
+    description:
+      'Go beyond the guidebook with authentic local experiences and unique cultural immersions.',
+    rightIcon: Camera,
   },
   {
-    title: 'QUALITY',
-    image: '/images/home/home-why-choose-sect-4.webp',
-    desc: 'We partner with operators who protect nature and culture. Travel that respects the places we love.',
-    rightIcon: Globe,
+    title: 'SHARE',
+    image: '/images/home/share-section.webp',
+    description:
+      'Document your journey, share tips, and inspire others to embark on their own adventures.',
+    rightIcon: Globe2,
   },
 ];
 
-export const Benefits = () => {
+export const WhyRoamify = () => {
   return (
     <Box py={{ base: 10, md: 20 }}>
       <Stack
@@ -58,13 +62,14 @@ export const Benefits = () => {
               px={4}
               py={1}
               border='1px solid'
-              borderColor='gray.300'
+              borderColor='secondary'
               borderRadius='full'
               letterSpacing='widest'
               textTransform='uppercase'
               fontWeight='medium'
+              color='secondary'
             >
-              Safety First Adventure
+              Why Choose Us
             </Text>
           </Center>
 
@@ -74,8 +79,13 @@ export const Benefits = () => {
             color='primary'
             fontWeight='bolder'
           >
-            Why Choose Zago Tours
+            More Than Just Travel
           </Heading>
+
+          <Text fontSize='lg' maxW='600px' color='gray.600'>
+            We're building a community of explorers who believe that the best
+            journeys are shared
+          </Text>
         </Stack>
 
         <Flex
@@ -88,13 +98,13 @@ export const Benefits = () => {
           <SimpleGrid
             columns={{ base: 1, md: 2 }}
             gap={6}
-            width={{ base: 'full', lg: '1000px' }} // Slightly wider for better balance
+            width={{ base: 'full', lg: '1000px' }}
           >
             {cardData.map((card, index) => (
               <FeatureHighlightCard
                 key={index}
                 title={card.title}
-                description={card.desc}
+                description={card.description}
                 imageSrc={card.image}
                 rightIcon={card.rightIcon}
               />
