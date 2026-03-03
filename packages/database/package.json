@@ -32,12 +32,12 @@
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
-    "bcryptjs": "^3.0.3"
+    "bcryptjs": "^3.0.3",
+    "prisma": "^5.22.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.30",
     "eslint": "^9.39.2",
-    "prisma": "^5.22.0",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",
     "tsx": "^4.19.1",
