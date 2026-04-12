@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+import nodemailer from "nodemailer";
 
 export interface EmailOptions {
   to: string | string[];
@@ -9,34 +9,38 @@ export interface EmailOptions {
   from?: string;
 }
 
-let resendInstance: Resend | null = null;
-const getResendInstance = (): Resend => {
-  if (!resendInstance) {
-    const apiKey = process.env.RESEND_API_KEY;
+let transporterInstance: nodemailer.Transporter | null = null;
 
-    if (!apiKey) {
-      throw new Error('RESEND_API_KEY is not defined in environment variables');
+const getTransporter = (): nodemailer.Transporter => {
+  if (!transporterInstance) {
+    const user = process.env.GMAIL_USER;
+    const pass = process.env.GMAIL_APP_PASSWORD;
+
+    if (!user || !pass) {
+      throw new Error(
+        "GMAIL_USER or GMAIL_APP_PASSWORD is not defined in environment variables",
+      );
     }
 
-    resendInstance = new Resend(apiKey);
+    transporterInstance = nodemailer.createTransport({
+      service: "gmail",
+      auth: { user, pass },
+    });
   }
 
-  return resendInstance;
+  return transporterInstance;
 };
 
 export class EmailService {
   private static adminEmail =
-    process.env.PARTNERSHIP_EMAIL || 'partnerships@roamify.com';
+    process.env.PARTNERSHIP_EMAIL || "partnerships@roamify.com";
   private static supportEmail =
-    process.env.SUPPORT_EMAIL || 'support@roamify.com';
+    process.env.SUPPORT_EMAIL || "support@roamify.com";
 
-  /**
-   * Send a single email
-   */
   static async sendEmail(options: EmailOptions): Promise<void> {
     try {
-      const resend = getResendInstance();
-      await resend.emails.send({
+      const transporter = getTransporter();
+      await transporter.sendMail({
         from: options.from || this.adminEmail,
         to: options.to,
         subject: options.subject,
@@ -44,7 +48,7 @@ export class EmailService {
         text: options.text,
       });
     } catch (error) {
-      throw new Error('Email sending failed');
+      throw new Error("Email sending failed");
     }
   }
 
@@ -97,7 +101,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Welcome to Zago Tours',
+      subject: "Welcome to Zago Tours",
       html,
     });
   }
@@ -153,7 +157,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Reset Your Password - roamify',
+      subject: "Reset Your Password - roamify",
       html,
     });
   }
@@ -206,7 +210,7 @@ export class EmailService {
                 <span class="value">${inquiryData.phone}</span>
               </div>
               `
-                  : ''
+                  : ""
               }
               ${
                 inquiryData.address
@@ -216,15 +220,15 @@ export class EmailService {
                 <span class="value">${inquiryData.address}</span>
               </div>
               `
-                  : ''
+                  : ""
               }
               <div class="detail-row">
                 <span class="label">Submitted:</span>
                 <span class="value">${new Date(
                   inquiryData.createdAt,
-                ).toLocaleString('en-US', {
-                  dateStyle: 'medium',
-                  timeStyle: 'short',
+                ).toLocaleString("en-US", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
                 })}</span>
               </div>
             </div>
@@ -292,11 +296,11 @@ export class EmailService {
             <div class="details">
               <p><strong>Requested Date & Time:</strong> ${new Date(
                 callDetails.startTime,
-              ).toLocaleString('en-US', {
-                dateStyle: 'full',
-                timeStyle: 'short',
+              ).toLocaleString("en-US", {
+                dateStyle: "full",
+                timeStyle: "short",
               })}</p>
-              ${callDetails.meetingLink ? `<p><strong>Meeting Link:</strong> <a href="${callDetails.meetingLink}">${callDetails.meetingLink}</a></p>` : ''}
+              ${callDetails.meetingLink ? `<p><strong>Meeting Link:</strong> <a href="${callDetails.meetingLink}">${callDetails.meetingLink}</a></p>` : ""}
             </div>
 
             <p style="margin-top: 20px;">We're excited to help plan your adventure!</p>
@@ -309,7 +313,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Trip Planning Call Request Received - roamify',
+      subject: "Trip Planning Call Request Received - roamify",
       html,
     });
   }
@@ -347,7 +351,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'We Received Your Inquiry - roamify',
+      subject: "We Received Your Inquiry - roamify",
       html,
     });
   }
@@ -390,7 +394,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Contract Ready for Signature - roamify',
+      subject: "Contract Ready for Signature - roamify",
       html,
     });
   }
@@ -446,9 +450,9 @@ export class EmailService {
                 <span class="label">Signed At:</span>
                 <span class="value">${new Date(
                   contractData.signedAt,
-                ).toLocaleString('en-US', {
-                  dateStyle: 'medium',
-                  timeStyle: 'short',
+                ).toLocaleString("en-US", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
                 })}</span>
               </div>
               <div class="detail-row">
@@ -516,7 +520,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Contract Signed Successfully - roamify',
+      subject: "Contract Signed Successfully - roamify",
       html,
     });
   }
@@ -585,8 +589,8 @@ export class EmailService {
                 <span class="label">Preferred Date:</span>
                 <span class="value">${new Date(
                   requestData.date,
-                ).toLocaleDateString('en-US', {
-                  dateStyle: 'long',
+                ).toLocaleDateString("en-US", {
+                  dateStyle: "long",
                 })}</span>
               </div>
               <div class="detail-row">
@@ -657,7 +661,7 @@ export class EmailService {
           </div>
           <div class="content">
             <h2>Hi ${agentName},</h2>
-            <p>You have a new callback request from ${requestData.isRegisteredUser ? 'one of your referrals' : 'a potential client'}!</p>
+            <p>You have a new callback request from ${requestData.isRegisteredUser ? "one of your referrals" : "a potential client"}!</p>
             
             ${requestData.isRegisteredUser ? '<span class="badge">Registered User</span>' : '<span class="badge" style="background-color: #FEF3C7; color: #92400E;">New Lead</span>'}
             
@@ -760,15 +764,15 @@ export class EmailService {
               <span class="value">${callData.adventurerPhone}</span>
             </div>
             `
-                : ''
+                : ""
             }
             <div class="detail-row">
               <span class="label">Requested Start Time:</span>
               <span class="value">${new Date(callData.startTime).toLocaleString(
-                'en-US',
+                "en-US",
                 {
-                  dateStyle: 'full',
-                  timeStyle: 'short',
+                  dateStyle: "full",
+                  timeStyle: "short",
                 },
               )}</span>
             </div>
@@ -784,7 +788,7 @@ export class EmailService {
               <span class="value"><a href="${callData.meetingLink}">${callData.meetingLink}</a></span>
             </div>
             `
-                : ''
+                : ""
             }
             <div class="detail-row">
               <span class="label">Call ID:</span>
@@ -793,10 +797,10 @@ export class EmailService {
             <div class="detail-row">
               <span class="label">Submitted:</span>
               <span class="value">${new Date(callData.createdAt).toLocaleString(
-                'en-US',
+                "en-US",
                 {
-                  dateStyle: 'medium',
-                  timeStyle: 'short',
+                  dateStyle: "medium",
+                  timeStyle: "short",
                 },
               )}</span>
             </div>
@@ -884,8 +888,8 @@ export class EmailService {
               <span class="label">Preferred Date:</span>
               <span class="value">${new Date(
                 requestData.date,
-              ).toLocaleDateString('en-US', {
-                dateStyle: 'long',
+              ).toLocaleDateString("en-US", {
+                dateStyle: "long",
               })}</span>
             </div>
             <div class="detail-row">
@@ -896,9 +900,9 @@ export class EmailService {
               <span class="label">Submitted:</span>
               <span class="value">${new Date(
                 requestData.createdAt,
-              ).toLocaleString('en-US', {
-                dateStyle: 'medium',
-                timeStyle: 'short',
+              ).toLocaleString("en-US", {
+                dateStyle: "medium",
+                timeStyle: "short",
               })}</span>
             </div>
           </div>
@@ -911,7 +915,7 @@ export class EmailService {
             ${requestData.preferences}
           </div>
           `
-              : ''
+              : ""
           }
 
           <a href="${process.env.ADMIN_URL || process.env.FRONTEND_URL}/admin/trip-requests/${requestData.requestId}" class="button">Assign Agent</a>
@@ -995,9 +999,9 @@ export class EmailService {
                 <span class="label">Submitted:</span>
                 <span class="value">${new Date(
                   callbackData.createdAt,
-                ).toLocaleString('en-US', {
-                  dateStyle: 'medium',
-                  timeStyle: 'short',
+                ).toLocaleString("en-US", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
                 })}</span>
               </div>
             </div>
@@ -1061,21 +1065,21 @@ export class EmailService {
               <p><strong>Previous Time:</strong></p>
               <p class="old-time">${new Date(
                 rescheduleData.oldStartTime,
-              ).toLocaleString('en-US', {
-                dateStyle: 'full',
-                timeStyle: 'short',
+              ).toLocaleString("en-US", {
+                dateStyle: "full",
+                timeStyle: "short",
               })}</p>
               
               <p style="margin-top: 15px;"><strong>New Time:</strong></p>
               <p class="new-time">${new Date(
                 rescheduleData.newStartTime,
-              ).toLocaleString('en-US', {
-                dateStyle: 'full',
-                timeStyle: 'short',
+              ).toLocaleString("en-US", {
+                dateStyle: "full",
+                timeStyle: "short",
               })}</p>
             </div>
 
-            ${rescheduleData.meetingLink ? `<a href="${rescheduleData.meetingLink}" class="button">Join Meeting</a>` : ''}
+            ${rescheduleData.meetingLink ? `<a href="${rescheduleData.meetingLink}" class="button">Join Meeting</a>` : ""}
             
             <p style="margin-top: 20px;">Your calendar has been updated with the new time. See you then!</p>
           </div>
@@ -1087,7 +1091,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Call Rescheduled - roamify',
+      subject: "Call Rescheduled - roamify",
       html,
     });
   }
@@ -1129,9 +1133,9 @@ export class EmailService {
             
             <div class="cancel-details">
               <p><strong>Cancelled Call:</strong></p>
-              <p>${new Date(cancelData.startTime).toLocaleString('en-US', {
-                dateStyle: 'full',
-                timeStyle: 'short',
+              <p>${new Date(cancelData.startTime).toLocaleString("en-US", {
+                dateStyle: "full",
+                timeStyle: "short",
               })}</p>
             </div>
 
@@ -1152,7 +1156,7 @@ export class EmailService {
     await this.sendEmail({
       from: this.supportEmail,
       to: email,
-      subject: 'Call Cancelled - roamify',
+      subject: "Call Cancelled - roamify",
       html,
     });
   }
