@@ -1,5 +1,5 @@
-import cloudinary from 'src/config/cloudinary.config';
-import { MediaType } from '@roamify/database';
+import cloudinary from "src/config/cloudinary.config";
+import { MediaType } from "@roamify/database";
 
 export interface UploadResult {
   url: string;
@@ -8,15 +8,15 @@ export interface UploadResult {
 }
 
 export type UploadContext =
-  | 'adventure'
-  | 'itinerary'
-  | 'adventure-gallery'
-  | 'platform-gallery'
-  | 'platform-setting'
-  | 'post'
-  | 'profile'
-  | 'contract'
-  | 'event';
+  | "adventure"
+  | "itinerary"
+  | "adventure-gallery"
+  | "platform-gallery"
+  | "platform-setting"
+  | "post"
+  | "profile"
+  | "contract"
+  | "event";
 
 export class CloudinaryService {
   private static getFolderName(context: UploadContext): string {
@@ -34,14 +34,14 @@ export class CloudinaryService {
           folder: this.getFolderName(context),
           public_id: customId,
           invalidate: true,
-          resource_type: 'auto',
-          transformation: file.mimetype.startsWith('image/')
-            ? [{ quality: 'auto:good', fetch_format: 'auto' }]
+          resource_type: "auto",
+          transformation: file.mimetype.startsWith("image/")
+            ? [{ quality: "auto:good", fetch_format: "auto" }]
             : undefined,
         },
         (error, result) => {
           if (error) return reject(error);
-          if (!result) return reject(new Error('Upload failed'));
+          if (!result) return reject(new Error("Upload failed"));
 
           resolve({
             url: result.secure_url,
@@ -68,14 +68,14 @@ export class CloudinaryService {
     try {
       await cloudinary.uploader.destroy(publicId);
     } catch (error) {
-      console.error('Failed to delete from Cloudinary:', publicId, error);
+      console.error("Failed to delete from Cloudinary:", publicId, error);
       // Don't throw - deletion failures shouldn't break the app
     }
   }
 
   static getMediaType(mimetype: string): MediaType {
-    if (mimetype.startsWith('image/')) return 'IMAGE';
-    if (mimetype.startsWith('video/')) return 'VIDEO';
-    return 'DOCUMENT';
+    if (mimetype.startsWith("image/")) return "IMAGE";
+    if (mimetype.startsWith("video/")) return "VIDEO";
+    return "DOCUMENT";
   }
 }
