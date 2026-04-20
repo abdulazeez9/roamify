@@ -15,28 +15,28 @@ import { FeatureHighlightCard } from "../ui/card/FeatureHighlightCard";
 const cardData = [
   {
     title: "DISCOVER",
-    image: "/images/home/discover-section.webp",
+    image: "/images/home/discover.webp",
     description:
       "Find hidden gems and off-the-beaten-path destinations that most travelers never get to experience.",
     rightIcon: Compass,
   },
   {
     title: "CONNECT",
-    image: "/images/home/connect-section.webp",
+    image: "/images/home/connect.webp",
     description:
       "Meet like-minded adventurers, share stories, and build friendships that last a lifetime.",
     rightIcon: Heart,
   },
   {
     title: "EXPLORE",
-    image: "/images/home/explore-section.webp",
+    image: "/images/home/explore.webp",
     description:
       "Go beyond the guidebook with authentic local experiences and unique cultural immersions.",
     rightIcon: Camera,
   },
   {
     title: "SHARE",
-    image: "/images/home/share-section.webp",
+    image: "/images/home/share.webp",
     description:
       "Document your journey, share tips, and inspire others to embark on their own adventures.",
     rightIcon: Globe2,

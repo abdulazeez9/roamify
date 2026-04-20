@@ -1,34 +1,34 @@
-'use client';
-import { Box, Text, Stack, Heading, Icon } from '@chakra-ui/react';
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import Button from '../ui/button/Button';
-import { AppLink } from '../ui/link/AppLink';
+"use client";
+import { Box, Text, Stack, Heading, Icon } from "@chakra-ui/react";
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import Button from "../ui/button/Button";
+import { AppLink } from "../ui/link/AppLink";
 
 export const CommunityHero = () => {
   return (
     <Box
-      bg='primary'
-      color='textPrimary'
+      bg="primary"
+      color="textPrimary"
       px={{ base: 5, md: 10 }}
       py={{ base: 2, md: 10 }}
       mb={9}
-      borderBottomRadius='3xl'
-      position='relative'
+      borderBottomRadius="3xl"
+      position="relative"
     >
-      <Stack textAlign='center' gap={5} align='center' py='50px'>
-        <Heading size={{ base: '2xl', md: '4xl' }} lineHeight='1.2'>
+      <Stack textAlign="center" gap={5} align="center" py="50px">
+        <Heading size={{ base: "2xl", md: "4xl" }} lineHeight="1.2">
           A Global Pulse for <br /> Modern Explorers
         </Heading>
 
-        <Text fontSize={{ base: 'md', md: 'lg' }} opacity={0.9}>
+        <Text fontSize={{ base: "md", md: "lg" }} opacity={0.9}>
           Curated by <strong>Abdulazeez Muritador</strong>, Roamify is where
           independent <br /> spirits unite to exchange raw stories and travel
           smarter.
         </Text>
 
-        <Button asChild bg='secondary' color='dark'>
-          <AppLink href='/posts'>
+        <Button asChild bg="secondary" color="dark">
+          <AppLink href="/posts">
             Enter the Circle
             <Icon as={ArrowRight} ml={2} />
           </AppLink>
