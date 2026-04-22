@@ -18,6 +18,8 @@ import Button from "../button/Button";
 import { AppLink } from "../link/AppLink";
 import { usePermissions, useToggleLikeAdventure } from "@/hooks";
 import { useRouter } from "next/navigation";
+import { launchConfetti } from "@/utils/confetti";
+import { toaster } from "../toaster";
 
 const AdventureCard = ({
   adventure,
@@ -33,16 +35,15 @@ const AdventureCard = ({
     e.preventDefault();
     e.stopPropagation();
 
-    const phoneNumber = "08148915591";
-    const message = `Hi! I'm interested in booking the "${adventure.title}" adventure for $${adventure.price}. Could you provide more details?`;
-    const whatsappUrl = `https://whatsapp.com/dl/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    launchConfetti();
 
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = whatsappUrl;
-    } else {
-      window.open(whatsappUrl, "_blank");
-    }
+    toaster.create({
+      title: "Booking Successful!",
+      description: "Your adventure has been reserved.",
+      type: "success",
+      duration: 3000,
+      closable: true,
+    });
   };
 
   const handleLikeClick = (e: React.MouseEvent) => {
