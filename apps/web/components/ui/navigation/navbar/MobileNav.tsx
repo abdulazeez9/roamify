@@ -86,7 +86,7 @@ export const MobileNav = () => {
                           fontWeight={isActive(link.href) ? 'bold' : 'normal'}
                           onClick={() => setOpen(false)}
                         >
-                          <Text color='white'>{link.label}</Text>
+                          <Text color='textPrimary'>{link.label}</Text>
                         </AppLink>
                       ))}
 
