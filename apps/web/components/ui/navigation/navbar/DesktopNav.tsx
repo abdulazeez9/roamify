@@ -33,7 +33,7 @@ export const DesktopNav = () => {
               textTransform='uppercase'
               fontWeight={isActive(link.href) ? 'medium' : 'sm'}
               textDecor='none'
-              color="white"
+              color="textPrimary"
             >
               {link.label}
             </AppLink>
