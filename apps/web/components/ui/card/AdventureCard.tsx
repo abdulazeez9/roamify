@@ -31,7 +31,7 @@ const AdventureCard = ({
   const { mutate: toggleLike } = useToggleLikeAdventure();
   const { isAuthenticated } = usePermissions();
 
-  const handleWhatsAppBooking = (e: React.MouseEvent) => {
+  const handleBooking = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -252,7 +252,7 @@ const AdventureCard = ({
 
           {/* Book Now button */}
           <Button
-            onClick={handleWhatsAppBooking}
+            onClick={handleBooking}
             bg="secondary"
             color="white"
             size="xs"
