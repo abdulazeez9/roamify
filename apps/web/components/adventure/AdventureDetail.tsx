@@ -46,6 +46,10 @@ import { ResponsiveImage } from '../media/ResponsiveImage';
 import ItineraryCard from '../ui/card/ItineraryCard';
 import { AppLink } from '../ui/link/AppLink';
 import { useRouter } from 'next/navigation';
+import { launchConfetti } from "@/utils/confetti";
+import { toaster } from "../toaster";
+
+
 
 interface AdventureDetailProps {
   adventureId: string;
@@ -74,6 +78,22 @@ export default function AdventureDetailPage({
     toggleLike(adventureId);
   };
 
+    const handleBooking = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    launchConfetti();
+
+    toaster.create({
+      title: "Booking Successful!",
+      description: "Your adventure has been reserved.",
+      type: "success",
+      duration: 3000,
+      closable: true,
+    });
+  };
+
+  
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -506,8 +526,9 @@ export default function AdventureDetailPage({
                 fill={adventure?.isLiked ? 'red.500' : 'none'}
               />
             </IconButton>
-            <AppLink href='https://wa.me/447418627748' target='_blank'>
+         
               <Button
+                onClick={handleBooking}
                 bg='primary'
                 color='white'
                 size={{ base: 'md', md: 'lg' }}
@@ -517,7 +538,7 @@ export default function AdventureDetailPage({
               >
                 Book Now
               </Button>
-            </AppLink>
+           
           </Flex>
         </Box>
       </Flex>
