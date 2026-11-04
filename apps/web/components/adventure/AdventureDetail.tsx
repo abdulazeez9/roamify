@@ -47,7 +47,7 @@ import ItineraryCard from '../ui/card/ItineraryCard';
 import { AppLink } from '../ui/link/AppLink';
 import { useRouter } from 'next/navigation';
 import { launchConfetti } from "@/utils/confetti";
-import { toaster } from "../toaster";
+import { toaster } from "@/components/ui/toaster";
 
 
 
